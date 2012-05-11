@@ -1,0 +1,40 @@
+Google Weather Widget for Awesome Window Manager
+
+This widget grabs weather data from Google's API based on a postal code and allows you to display it as an awesome textbox widget. The widget will display the current temperature (in F) and will have a tooltip with more details. The widget checks for updates every 10 minutes.
+
+Author: Jesse R. Adams
+Website: https://github.com/jesseadams/weather
+
+Installation:
+1. Clone this repo to ~/.config/awesome
+
+2. Add the following to your rc.lua (123456 being your postal code)
+
+  require('weather')
+  forecast = widget({ type = "textbox", name = "weather" })
+  weather.register(forecast, 123456)
+
+3. Add forecast to your wibox widgets. Mine looks like:
+
+  mywibox[s].widgets = {
+    {
+      mylauncher,
+      mytaglist[s],
+      mypromptbox[s],
+      layout = awful.widget.layout.horizontal.leftright
+    },
+    mylayoutbox[s],
+    memwidget,
+    cpuwidget,
+    fswidget,
+    batwidget,
+    volwidget,
+    forecast,
+    mytextclock,
+    s == 1 and mysystray or nil,
+    mytasklist[s],
+    layout = awful.widget.layout.horizontal.rightleft
+  }
+
+
+Your feedback is greatly appreciated!
