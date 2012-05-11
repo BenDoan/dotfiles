@@ -1,5 +1,5 @@
 dotfiles
 ========
 
-My personal dotfiles
-Use install.sh to install
+*My personal dotfiles
+*Use install.sh to install
