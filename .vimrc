@@ -102,7 +102,7 @@ let php_htmlInStrings=1
 
 syntax enable
 set background=dark
-colorscheme badwolf
+colors badwolf
 
 if has("win32")
     set guifont=Consolas:h11:cANSI
