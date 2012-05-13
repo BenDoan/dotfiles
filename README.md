@@ -1,5 +1,4 @@
 dotfiles
 ========
 
-* My personal dotfiles
-* Use install.sh to install
+* My personal dotfiles, just clone and use install.sh to link the files
