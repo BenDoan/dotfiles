@@ -6,7 +6,7 @@ filetype plugin on
 filetype plugin indent on
 
 set hidden   "Doesn't close buffers
-set history=1000         " remember more commands and search history
+set history=1000  " remember more commands and search history
 set nobackup
 set noswapfile
 set backspace=indent,eol,start "fixes backspacing in normal mode
@@ -37,7 +37,9 @@ set cmdheight=1 "sets command window at bottom
 set showmatch "Jumps to matching paren
 set mat=5 "how long to show matching parens
 
-if has("autocmd")
+augroup autocmds
+    autocmd!
+
     au BufWritePre * silent g/\s\+$/s/// " Remove trailing spaces after save
 
     au VimEnter * ColorHighlight
@@ -54,9 +56,11 @@ if has("autocmd")
     "make stuff
     au BufNewFile,BufRead *.php set makeprg=php\ -l\ %
     au BufNewFile,BufRead *.php set errorformat=%m\ in\ %f\ on\ line\ %l
+
     au BufNewFile,BufRead *.py set makeprg=python\ %
+
     au BufNewFile,BufRead *.go set makeprg=go\ build\ %
-endif
+augroup END
 
 "Search stuff
 set ignorecase
@@ -77,23 +81,14 @@ set softtabstop=4
 set expandtab
 
 "Undo stuff
-if has('unix')
-    set undodir=$VIMRUNTIME\..\vimfiles\undo
-else
-    set undodir=~/vimundo
-endif
+set undodir=~/vimundo
 set undofile
 set undolevels=1000
 set undoreload=10000
 
 "Autocomplete menu
 set wildmenu
-set wildmode=longest,list:full
-
-"Text wrapping
-set wrap
-set textwidth=79
-set formatoptions=qcn1
+set wildmode=longest,list
 
 "php stuff
 let php_sql_query=1
@@ -110,6 +105,7 @@ elseif has("gui")
     set guifont="DejaVu Sans Mono 12"
 else
     set t_Co=256
+    colors badwolf
 endif
 
 "set list
@@ -121,9 +117,6 @@ endif
 set pastetoggle=<F2>
 let mapleader = ","
 
-cmap Q q
-cmap W w
-cmap X x
 cmap w!! w !sudo tee % >/dev/null
 
 nnoremap j gj
@@ -136,6 +129,7 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
+"Selects the last pasted text
 nnoremap gp `[v`]
 
 
@@ -144,16 +138,7 @@ cmap <C-V>		<C-R>+
 imap <C-V>		<C-R>+
 noremap <C-Q> <C-V>
 
-imap jj <Esc>
-
-
-vnoremap <C-X> "+x
-vnoremap <C-C> "+y
 map <C-V> "+gP
-
-noremap <C-S>		:update<CR>
-vnoremap <C-S>		<C-C>:update<CR>
-inoremap <C-S>		<C-O>:update<CR>
 
 " Column scroll-binding on <leader>sb
 noremap <silent> <leader>sb :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
@@ -171,14 +156,15 @@ vnoremap < <gv
 vnoremap > >gv
 
 
-nmap <silent> <F4>
-    \ :!ctags -f ./tags
-    \ --langmap="php:+.inc"
-    \ -h ".php.inc" -R --totals=yes
-    \ --tag-relative=yes --PHP-kinds=+cf-v .<CR>
+if executable('ctags')
+    nmap <silent> <F4>
+        \ :!ctags -f ./tags
+        \ --langmap="php:+.inc"
+        \ -h ".php.inc" -R --totals=yes
+        \ --tag-relative=yes --PHP-kinds=+cf-v .<CR>
 
-set tags=./tags,tags
-
+    set tags=./tags,tags
+endif
 
 
 "PLUGINS
