@@ -1,11 +1,20 @@
-mkdir ~/.config/
+function link {
+    ln -s "`pwd`/$1" ~/
+}
+
 
 #Directories
+mkdir ~/.config/
 ln -s "`pwd`/awesome/" ~/.config/
-ln -s "`pwd`/.oh-my-zsh/" ~/
-ln -s "`pwd`/.vim/" ~/
+
+link '.oh-my-zsh/'
+link '.vim/'
 
 #Files
-ln -s "`pwd`/.vimrc" ~/
-ln -s "`pwd`/.xinitrc" ~/
-ln -s "`pwd`/.zshrc" ~/
+link '.vimrc'
+link '.xinitrc'
+link '.zshrc'
+
+echo "==============="
+echo "Dotfiles linked"
+echo "==============="
