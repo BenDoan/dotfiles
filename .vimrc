@@ -130,6 +130,7 @@ noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
 "Selects the last pasted text
+
 nnoremap gp `[v`]
 
 
@@ -191,4 +192,3 @@ map <silent> e <Plug>CamelCaseMotion_e
 sunmap w
 sunmap b
 sunmap e
-
