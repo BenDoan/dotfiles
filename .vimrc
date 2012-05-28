@@ -133,6 +133,8 @@ noremap <C-l> <C-w>l
 
 nnoremap gp `[v`]
 
+nnoremap ; :
+
 
 map <C-V>		"+gP
 cmap <C-V>		<C-R>+
