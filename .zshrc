@@ -15,4 +15,4 @@ alias ls='ls -F --color'
 alias lampp='sudo /opt/lampp/lampp'
 alias reboot-win='sudo grub2-set-default 1 && reboot' #reboots into windows
 alias ducks='du -cksh * | sort -rn|head -11' #lists files and file sizes
-alias pi=sudo pip-python install
+alias pi="sudo pip-python install"
