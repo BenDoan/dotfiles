@@ -306,10 +306,6 @@ for s = 1, screen.count() do
         spacer,
         weatherwidget,
 
-        spacer,
-        separator,
-        spacer,
-        volumecfg.widget,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
     }
@@ -524,5 +520,6 @@ end
 
 run_once("thunar --daemon")
 run_once("sh /home/ben/scripts/startup.sh")
+run_once("gnome-sound-applet")
 --awful.util.spawn("thunar --daemon")
 --awful.util.spawn("~/scripts/startup.sh")
