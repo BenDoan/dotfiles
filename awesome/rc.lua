@@ -509,3 +509,20 @@ end)
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+function run_once(command)
+    if not command then
+        do return nil end
+    end
+    local program = command:match("[^ ]+")
+
+    -- If program is not running
+    if math.fmod(os.execute("pgrep -x " .. program),255) == 1 then
+        awful.util.spawn(command)
+    end
+end
+
+run_once("thunar --daemon")
+run_once("sh /home/ben/scripts/startup.sh")
+--awful.util.spawn("thunar --daemon")
+--awful.util.spawn("~/scripts/startup.sh")
