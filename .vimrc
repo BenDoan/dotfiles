@@ -12,14 +12,12 @@ set noswapfile
 set backspace=indent,eol,start "fixes backspacing in normal mode
 set guioptions-=T  "remove menu bar
 
-"Stops screen flashing
-set noeb vb t_vb=
+set noeb vb t_vb= "Stops screen flashing
 au GUIEnter * set vb t_vb=
 
 set nofoldenable "disables folding
 
 set autoread "automatically reads a file once it has been changed
-"set virtualedit=all "can edit anywhere
 set mouse=a
 set showcmd "shows uncompleted commands in the status bar
 set cursorline "highlights cursor line
@@ -28,7 +26,6 @@ set showmode "shows the current mode
 set laststatus=2 "status line is always on
 set gdefault "search/replace is globally done on a line by default
 set number
-"set colorcolumn=85
 set clipboard=unnamed
 set autochdir "cd into the dir of the current file
 set linebreak "wraps text, no eols
@@ -36,6 +33,8 @@ set scrolloff=2   "scrollspace above cursor
 set cmdheight=1 "sets command window at bottom
 set showmatch "Jumps to matching paren
 set mat=5 "how long to show matching parens
+set cpoptions+=ces$ "makes cw put a $ at the end instead of deleting
+set lazyredraw "don't update screen when execing macros
 
 augroup autocmds
     autocmd!

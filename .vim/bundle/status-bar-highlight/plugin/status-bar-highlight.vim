@@ -16,7 +16,7 @@ function! MyStatusLine(mode)
     elseif a:mode == 'Enter'
         let statusline.="%r%*"
     endif
-    let statusline .= "\ CWD: %{ getcwd()}%=%h%w\ (%l/%L)\ %{fugitive#statusline()}\ %y\ [%{&encoding}:%{&fileformat}]\ \ "
+    let statusline .= "\ %{ getcwd()}%=%h%w\ (%l/%L)\ %{fugitive#statusline()}\ %y\ [%{&encoding}:%{&fileformat}]\ \ "
     return statusline
 endfunction
 
