@@ -35,7 +35,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/usr/share/awesome/themes/default/theme.lua")
+beautiful.init("/home/ben/.config/awesome/themes/awesomebang/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "xterm"
@@ -134,6 +134,13 @@ vicious.register(memwidget, vicious.widgets.mem,
                  end, 13)
                  --update every 13 seconds
 
+-- Text RAM usage
+-- Initialize widget
+Tmemwidget = widget({ type = "textbox" })
+-- Register widget
+vicious.register(Tmemwidget, vicious.widgets.mem, "RAM: $1%", 13)
+
+
 -- CPU usage widget
 cpuwidget = awful.widget.graph()
 cpuwidget:set_width(50)
@@ -150,6 +157,12 @@ vicious.register(cpuwidget, vicious.widgets.cpu,
                         cpuwidget_t:set_text("CPU Usage: " .. args[1] .. "%")
                         return args[1]
                     end)
+
+-- Text CPU widget
+-- Initialize widget
+Tcpuwidget = widget({ type = "textbox" })
+-- Register widget
+vicious.register(Tcpuwidget, vicious.widgets.cpu, "CPU: $1%")
 
 -- Volume widget
 
@@ -295,11 +308,13 @@ for s = 1, screen.count() do
         datewidget,
         s == 1 and mysystray or nil,
         memwidget.widget,
+        Tmemwidget,
 
         spacer,
         separator,
         spacer,
         cpuwidget.widget,
+        Tcpuwidget,
 
         spacer,
         separator,

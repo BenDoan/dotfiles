@@ -6,7 +6,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH=/usr/lib/ccache:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/ben/.local/bin:/home/ben/bin:/usr/local/go/bin
 
 export editor=vim
-export XDG_CURRENT_DESKTOP=gnome
+export XDG_CURRENT_DESKTOP=GNOME
 
 setopt RM_STAR_WAIT
 setopt NO_BEEP
