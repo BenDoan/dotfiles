@@ -87,7 +87,7 @@ set undoreload=10000
 
 "Autocomplete menu
 set wildmenu
-set wildmode=longest,list
+set wildmode=full
 
 "php stuff
 let php_sql_query=1

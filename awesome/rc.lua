@@ -307,14 +307,14 @@ for s = 1, screen.count() do
         spacer,
         datewidget,
         s == 1 and mysystray or nil,
-        memwidget.widget,
+        --memwidget.widget,
         Tmemwidget,
 
         spacer,
         separator,
         spacer,
         cpuwidget.widget,
-        Tcpuwidget,
+        --Tcpuwidget,
 
         spacer,
         separator,
