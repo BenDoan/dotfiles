@@ -1,0 +1,47 @@
+#avoid flicker
+double_buffer yes
+
+#own window to run simultanious 2 or more conkys
+own_window  yes
+own_window_transparent no
+own_window_type override
+own_window_hints undecorate,sticky,skip_taskbar,skip_pager
+
+#borders
+draw_borders yes
+draw_graph_borders yes
+border_width 1
+border_margin 3
+
+#shades
+draw_shades no
+
+#position
+gap_x 0
+gap_y 4
+alignment top_left
+
+#behaviour
+update_interval 1
+
+#colour
+default_color 000000
+#default_shade_color 000000
+own_window_colour 000000
+#font
+use_xft yes
+xftfont lime:size=7
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale yes
+
+#to prevent window from moving
+use_spacer none
+minimum_size 1366 0
+
+#mpd
+#mpd_host localhost
+#mpd_port 6600
+
+TEXT
+${color #9BBAF1} ${color #9BBAF1} ${alignr} ${color #9BBAF1}Kernel >> ${color ffffff}$kernel  ${color #9BBAF1}Up >> ${color #9BBAF1}${color #ffffff}${uptime_short} ${color #9BBAF1}| Cpu >> ${color #ffffff}${cpu}% ${color #ffffff} ${color #9BBAF1}Ram >> ${color #ffffff}${memperc}%  ${color #9BBAF1}Swap >> ${color ffffff}${swapperc}%  ${color #9BBAF1}Disk >> ${color ffffff}${fs_used_perc /}% ${color #9BBAF1}| Up Speed >> ${color ffffff}${upspeedf eth0} kb/s ${color #9BBAF1}Down Speed: ${color ffffff}${downspeedf eth0} kb/s${color #9BBAF1} | ${color #9BBAF1}${time %d/%m/%y}${color #9BBAF1} ${time %H:%M}

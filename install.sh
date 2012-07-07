@@ -14,6 +14,7 @@ link '.vim/'
 link '.vimrc'
 link '.xinitrc'
 link '.zshrc'
+link '.conkyrc'
 
 echo "==============="
 echo "Dotfiles linked"

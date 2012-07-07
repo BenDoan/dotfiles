@@ -16,6 +16,7 @@ setopt NO_BEEP
 alias ls='ls -hF --color=auto --group-directories-first'
 alias lampp='sudo /opt/lampp/lampp'
 alias ducks='du -cksh * | sort -rn|head -11' #lists files and file sizes
+alias windows='sh ~/scripts/start_xp.sh'
 
 alias pi="sudo pip-python install"
 alias pg='ps -Af | grep $1'
