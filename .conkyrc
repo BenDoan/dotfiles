@@ -17,9 +17,8 @@ xftalpha 0.5
 update_interval 1
 double_buffer yes
 
-alignment top_left
-#gap_y 12
-gap_x 1500
+alignment top_right
+gap_x 70
 
 TEXT
 
