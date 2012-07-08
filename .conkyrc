@@ -45,10 +45,6 @@ Cached:$alignr${cached}
 Swap:$alignr${swap} / ${swapmax}
 
 ${color 9bcff2}${font :size=11}Battery$color $hr$font
-${battery}% $battery_bar
+${battery} ${battery_bar}
 
 
-#BATTERY
-#${hr}
-#${font sans-serif:normal:size=11} Status: $battery
-#$battery_bar
