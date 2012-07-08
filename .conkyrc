@@ -1,47 +1,55 @@
-#avoid flicker
-double_buffer yes
-
-#own window to run simultanious 2 or more conkys
-own_window  yes
-own_window_transparent no
-own_window_type override
-own_window_hints undecorate,sticky,skip_taskbar,skip_pager
-
-#borders
-draw_borders yes
-draw_graph_borders yes
-border_width 1
-border_margin 3
-
-#shades
+background yes
+draw_borders no
 draw_shades no
 
-#position
-gap_x 0
-gap_y 4
-alignment top_left
+default_color 636162
+#default_color orange
 
-#behaviour
-update_interval 1
+own_window no
+own_window_type desktop
+own_window_transparent yes
+own_window_hints undecorated, sticky, below, skip_pager, skip_taskbar
 
-#colour
-default_color 000000
-#default_shade_color 000000
-own_window_colour 000000
-#font
 use_xft yes
-xftfont lime:size=7
+xftfont Sans:size=16
+xftalpha 0.5
 
-# Force UTF8? note that UTF8 support required XFT
-override_utf8_locale yes
+update_interval 1
+double_buffer yes
 
-#to prevent window from moving
-use_spacer none
-minimum_size 1366 0
-
-#mpd
-#mpd_host localhost
-#mpd_port 6600
+alignment top_left
+#gap_y 12
+gap_x 1500
 
 TEXT
-${color #9BBAF1} ${color #9BBAF1} ${alignr} ${color #9BBAF1}Kernel >> ${color ffffff}$kernel  ${color #9BBAF1}Up >> ${color #9BBAF1}${color #ffffff}${uptime_short} ${color #9BBAF1}| Cpu >> ${color #ffffff}${cpu}% ${color #ffffff} ${color #9BBAF1}Ram >> ${color #ffffff}${memperc}%  ${color #9BBAF1}Swap >> ${color ffffff}${swapperc}%  ${color #9BBAF1}Disk >> ${color ffffff}${fs_used_perc /}% ${color #9BBAF1}| Up Speed >> ${color ffffff}${upspeedf eth0} kb/s ${color #9BBAF1}Down Speed: ${color ffffff}${downspeedf eth0} kb/s${color #9BBAF1} | ${color #9BBAF1}${time %d/%m/%y}${color #9BBAF1} ${time %H:%M}
+
+#${color 000}${font :size=11}Time$color $hr$font
+${color 9bcff2}${font :size=11}Time$color $hr$font
+${font :size=25}$alignc${time %l:%M %p}$font
+$alignc${time %A, %B %d, %Y}
+
+#${color 000}${font :size=11}System$color $hr$font
+${color 9bcff2}${font :size=11}System$color $hr$font
+Uptime:$alignr$uptime
+Kernel:$alignr$kernel
+
+#${color 000}${font :size=11}Processor$color $hr$font
+${color 9bcff2}${font :size=11}Processor$color $hr$font
+CPU:$alignr${freq_g cpu1}Ghz
+${cpu}% ${cpubar 7, }
+
+#${color 000}${font :size=11}Memory$color $hr$font
+${color 9bcff2}${font :size=11}Memory$color $hr$font
+Memory:$alignr${mem} / ${memmax}
+${memperc}% ${membar 7, }
+Cached:$alignr${cached}
+Swap:$alignr${swap} / ${swapmax}
+
+${color 9bcff2}${font :size=11}Battery$color $hr$font
+${battery}% $battery_bar
+
+
+#BATTERY
+#${hr}
+#${font sans-serif:normal:size=11} Status: $battery
+#$battery_bar
