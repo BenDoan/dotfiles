@@ -138,7 +138,7 @@ vicious.register(memwidget, vicious.widgets.mem,
 -- Initialize widget
 Tmemwidget = widget({ type = "textbox" })
 -- Register widget
-vicious.register(Tmemwidget, vicious.widgets.mem, "RAM: $1%", 13)
+vicious.register(Tmemwidget, vicious.widgets.mem, "$1%", 13)
 
 
 -- CPU usage widget
@@ -307,7 +307,10 @@ for s = 1, screen.count() do
         spacer,
         datewidget,
         s == 1 and mysystray or nil,
-        --memwidget.widget,
+
+        spacer,
+        separator,
+        spacer,
         Tmemwidget,
 
         spacer,
