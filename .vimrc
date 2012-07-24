@@ -18,6 +18,7 @@ au GUIEnter * set vb t_vb=
 set nofoldenable "disables folding
 
 set autoread "automatically reads a file once it has been changed
+set autowrite "saves the current file on certain actions
 set mouse=a
 set showcmd "shows uncompleted commands in the status bar
 set cursorline "highlights cursor line
@@ -35,6 +36,13 @@ set showmatch "Jumps to matching paren
 set mat=5 "how long to show matching parens
 set cpoptions+=ces$ "makes cw put a $ at the end instead of deleting
 set lazyredraw "don't update screen when execing macros
+set synmaxcol=800 "don't highlight long lines
+
+"for terminal vim
+set notimeout
+set ttimeout
+set ttimeoutlen=10
+
 
 augroup autocmds
     autocmd!
@@ -89,6 +97,21 @@ set undoreload=10000
 set wildmenu
 set wildmode=full
 
+set wildignore+=.hg,.git,.svn                    " Version control
+set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
+set wildignore+=*.spl                            " compiled spelling word lists
+set wildignore+=*.sw?                            " Vim swap files
+set wildignore+=*.DS_Store                       " OSX bullshit
+
+set wildignore+=*.luac                           " Lua byte code
+
+set wildignore+=*.pyc                            " Python byte code
+
+set wildignore+=*.orig                           " Merge resolution files
+
+
 "php stuff
 let php_sql_query=1
 let php_htmlInStrings=1
@@ -96,7 +119,7 @@ let php_htmlInStrings=1
 
 syntax enable
 set background=dark
-colors badwolf
+let g:badwolf_html_link_underline = 0
 
 if has("win32")
     set guifont=Consolas:h11:cANSI
@@ -104,20 +127,23 @@ elseif has("gui")
     set guifont="DejaVu Sans Mono 12"
 else
     set t_Co=256
-    colors badwolf
 endif
+colors badwolf
 
-"set list
-"set listchars=eol:¬
-"set listchars=tab:|
+"shows "special" characters
+set list
+set listchars=eol:¬
 
-"Key Maps
+"KEY MAPS
+""""""""
 
 set pastetoggle=<F2>
 let mapleader = ","
 
+"writes a file with sudo
 cmap w!! w !sudo tee % >/dev/null
 
+"causes j and k to scroll by the visible line
 nnoremap j gj
 nnoremap k gk
 nnoremap <leader><space> :noh<cr>
@@ -154,10 +180,25 @@ map N Nzz
 map n nzz
 map! <F1> <Esc>
 
+"keeps the visual selection when you tab a piece of text over
 vnoremap < <gv
 vnoremap > >gv
 
+nnoremap <f9> mzggg?G`z
 
+"keeps the cursor in the same place when joining lines
+nnoremap J mzJ`z
+
+"split lines
+nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
+
+" Toggle [i]nvisible characters
+nnoremap <leader>i :set list!<cr>
+
+" Ack for the last search.
+nnoremap <silent> <leader>/ :execute "Ack! '" . substitute(substitute(substitute(@/, "\\\\<", "\\\\b", ""), "\\\\>", "\\\\b", ""), "\\\\v", "", "") . "'"<CR>
+
+"maps for ctags
 if executable('ctags')
     nmap <silent> <F4>
         \ :!ctags -f ./tags
