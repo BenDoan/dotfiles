@@ -37,6 +37,8 @@ set mat=5 "how long to show matching parens
 set cpoptions+=ces$ "makes cw put a $ at the end instead of deleting
 set lazyredraw "don't update screen when execing macros
 set synmaxcol=800 "don't highlight long lines
+set splitright
+set splitbelow
 
 "for terminal vim
 set notimeout
@@ -131,7 +133,7 @@ endif
 colors badwolf
 
 "shows "special" characters
-set list
+"set list
 set listchars=eol:¬
 
 "KEY MAPS
