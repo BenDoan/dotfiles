@@ -26,3 +26,9 @@ alias ys="yum search"
 alias yu="sudo yum update"
 alias yi="sudo yum install"
 alias yr="sudo yum remove"
+
+# git aliases
+alias gpm="git push origin master"
+alias gpd="git push origin dev"
+alias gc="git commit -am"
+alias ga="git add ."
