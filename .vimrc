@@ -236,3 +236,6 @@ map <silent> e <Plug>CamelCaseMotion_e
 sunmap w
 sunmap b
 sunmap e
+
+"CtrlP
+let g:ctrlp_map = '<space>'
