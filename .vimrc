@@ -217,7 +217,7 @@ endif
 "Zen Coding
 let g:user_zen_expandabbr_key = '<c-e>'
 
-"Supetab
+"Supertab
 let g:SuperTabDefaultCompletionType = "context"
 
 "Nerd Commenter
@@ -225,9 +225,6 @@ map <C-c> <plug>NERDCommenterToggle
 
 "Nerd Tree
 nmap <F8> :NERDTreeToggle <CR>
-
-"Taglist
-nmap <F7> :TlistToggle <CR>
 
 "CamelCaseMotion
 map <silent> w <Plug>CamelCaseMotion_w
