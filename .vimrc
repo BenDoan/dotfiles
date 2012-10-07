@@ -239,3 +239,6 @@ let g:ctrlp_map = '<space>'
 
 "Fswitch
 nmap <silent> <leader>of :FSHere<cr>
+
+"Pytest
+map <silent> <leader>tt :Pytest file<cr>
