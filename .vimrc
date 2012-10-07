@@ -126,7 +126,7 @@ let g:badwolf_html_link_underline = 0
 if has("win32")
     set guifont=Consolas:h11:cANSI
 elseif has("gui")
-    set guifont="DejaVu Sans Mono 12"
+    set guifont=Source\ Code\ Pro\ 10
 else
     set t_Co=256
 endif
