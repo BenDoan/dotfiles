@@ -15,7 +15,7 @@ link '.vimrc'
 link '.xinitrc'
 link '.zshrc'
 link '.conkyrc'
-link '.clisprc.lisp'
+link '.Xdefaults'
 
 echo "==============="
 echo "Dotfiles linked"
