@@ -108,7 +108,7 @@ separator.text = "|"
 
 -- Memory Widget
 --memwidget = widget({ type = "textbox" })
---vicious.register(memwidget, vicious.widgets.mem, "RAM: $1%", 13)
+--vicious.register(memwidget, vicious.widgets.mem, "RAM: $1% ", 13)
 
 -- CPU Widget
 --cpuwidget = widget({ type = "textbox" })
@@ -538,3 +538,4 @@ run_once("sh /home/ben/scripts/startup.sh")
 run_once("gnome-sound-applet")
 run_once("conky")
 run_once("jupiter")
+run_once("nm-applet")

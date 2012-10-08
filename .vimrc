@@ -239,3 +239,6 @@ sunmap e
 
 "CtrlP
 let g:ctrlp_map = '<space>'
+
+"Fswitch
+nmap <silent> <leader>of :FSHere<cr>
