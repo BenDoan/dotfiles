@@ -123,6 +123,23 @@ memwidget:set_background_color('#494B4F')
 memwidget:set_color('#AECF96')
 memwidget:set_gradient_colors({ '#AECF96', '#88A175', '#FF5656' })
 
+Tbatwidget = widget({ type = "textbox" })
+vicious.register(Tbatwidget, vicious.widgets.bat, "BAT: $3", 120, "BAT0")
+
+-- {{{ Battery state
+-- Initialize widget
+batwidget = awful.widget.progressbar()
+batwidget:set_width(8)
+batwidget:set_height(14)
+batwidget:set_vertical(true)
+batwidget:set_background_color("#000000")
+batwidget:set_border_color(nil)
+batwidget:set_color("#00bfff")
+
+-- {{{ Battery state
+-- Initialize widget
+vicious.register(batwidget, vicious.widgets.bat, "$2", 120, "BAT0")
+
 -- RAM usage tooltip
 memwidget_t = awful.tooltip({ objects = { memwidget.widget },})
 
@@ -303,23 +320,25 @@ for s = 1, screen.count() do
             layout = awful.widget.layout.horizontal.leftright
         },
         mylayoutbox[s],
-        --mytextclock,
         spacer,
         datewidget,
         s == 1 and mysystray or nil,
-        --memwidget.widget,
+        cpuwidget.widget,
+
+        spacer,
+        separator,
+        spacer,
         Tmemwidget,
 
         spacer,
         separator,
         spacer,
-        cpuwidget.widget,
-        --Tcpuwidget,
+        Tbatwidget,
 
-        spacer,
-        separator,
-        spacer,
-        weatherwidget,
+        --spacer,
+        --separator,
+        --spacer,
+        --weatherwidget,
 
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
