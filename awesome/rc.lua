@@ -166,21 +166,10 @@ cpuwidget:set_background_color("#494B4F")
 cpuwidget:set_color("#FF5656")
 cpuwidget:set_gradient_colors({ "#FF5656", "#88A175", "#AECF96" })
 
-cpuwidget_t = awful.tooltip({ objects = { cpuwidget.widget },})
+--cpuwidget_t = awful.tooltip({ objects = { cpuwidget.widget },})
 
 -- Register CPU widget
-vicious.register(cpuwidget, vicious.widgets.cpu,
-                    function (widget, args)
-                        cpuwidget_t:set_text("CPU Usage: " .. args[1] .. "%")
-                        return args[1]
-                    end)
-
--- Text CPU widget
--- Initialize widget
-Tcpuwidget = widget({ type = "textbox" })
--- Register widget
-vicious.register(Tcpuwidget, vicious.widgets.cpu, "CPU: $1%")
-
+vicious.register(cpuwidget, vicious.widgets.cpu, "$1", 0.2)
 -- Volume widget
 
 volumecfg = {}
@@ -547,7 +536,7 @@ function run_once(command)
     local program = command:match("[^ ]+")
 
     -- If program is not running
-    if math.fmod(os.execute("pgrep -x " .. program),255) == 1 then
+    if math.fmod(os.execute("pgrep -xf " .. program),255) == 1 then
         awful.util.spawn(command)
     end
 end
@@ -556,5 +545,5 @@ run_once("thunar --daemon")
 run_once("sh /home/ben/scripts/startup.sh")
 run_once("gnome-sound-applet")
 run_once("conky")
-run_once("jupiter")
+run_once("python /usr/bin/jupiter")
 run_once("nm-applet")
