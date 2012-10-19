@@ -13,6 +13,7 @@ link '.vim/'
 #Files
 link '.vimrc'
 link '.xinitrc'
+link '.xsession'
 link '.zshrc'
 link '.conkyrc'
 link '.Xresources'
