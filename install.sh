@@ -1,3 +1,5 @@
+#!/bin/bash
+
 function link {
     ln -s "`pwd`/$1" ~/
 }
