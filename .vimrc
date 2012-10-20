@@ -128,8 +128,8 @@ if has("win32")
 elseif has("gui")
     set guifont=Source\ Code\ Pro\ 10
 else
-    set t_Co=256
 endif
+set t_Co=256
 colors badwolf
 
 "shows "special" characters
