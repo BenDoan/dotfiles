@@ -28,6 +28,15 @@ alias yu="sudo yum update"
 alias yi="sudo yum install"
 alias yr="sudo yum remove"
 
+# aptitude aliases
+alias api="sudo aptitude install"
+alias aps="aptitude search"
+alias apr="sudo aptitude remove"
+alias app="sudo aptitude purge"
+alias apu="sudo aptitude update"
+
+alias acs="apt-cache search"
+
 # git aliases
 alias gpm="git push origin master"
 alias gpd="git push origin dev"
