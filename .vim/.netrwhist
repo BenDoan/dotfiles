@@ -1,11 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/home/ben/node_modules'
-let g:netrw_dirhist_2='/var/log/sssd'
-let g:netrw_dirhist_3='/home/ben/Downloads/mp3blaster-3.2.5'
-let g:netrw_dirhist_4='/var/log/mail'
-let g:netrw_dirhist_5='/home/ben/dotfiles/.vim'
-let g:netrw_dirhist_6='/etc/X11/xorg.conf.d'
-let g:netrw_dirhist_7='/home/ben/dotfiles/.vim'
-let g:netrw_dirhist_8='/home/ben/dotfiles/.oh-my-zsh/plugins/debian'
-let g:netrw_dirhist_9='/'
+let g:netrw_dirhist_cnt =0

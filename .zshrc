@@ -18,6 +18,7 @@ alias lampp='sudo /opt/lampp/lampp'
 alias ducks='du -cksh * | sort -rn|head -11' #lists files and file sizes
 alias windows='sh ~/scripts/start_xp.sh'
 alias sd="sudo shutdown now"
+alias e="vim"
 
 alias pi="sudo pip-python install"
 alias pg='ps -Af | grep $1'
