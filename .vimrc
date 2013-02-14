@@ -11,6 +11,7 @@ set nobackup
 set noswapfile
 set backspace=indent,eol,start "fixes backspacing in normal mode
 set guioptions-=T  "remove menu bar
+set modeline
 
 set modeline
 
