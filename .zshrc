@@ -20,7 +20,11 @@ alias windows='sh ~/scripts/start_xp.sh'
 alias sd="sudo shutdown now"
 alias e="vim"
 
-alias pi="sudo pip-python install"
+# Computer Science
+alias cs_screens="xrandr --output VGA1 --mode 1680x1050 --above LVDS1 && awsetbg /home/ben/Pictures/bg.jpg"
+alias home_connect="ssh -D 1337 -X ben@simcaster.dyndns.org"
+
+alias pi="sudo pip install"
 alias pg='ps -Af | grep $1'
 
 # yum aliases
