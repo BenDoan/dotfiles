@@ -35,6 +35,7 @@ alias ll='ls -l'
 alias lampp='sudo /opt/lampp/lampp'
 alias ducks='du -cksh * | sort -rn|head -11' #lists files and file sizes
 alias e=$EDITOR
+alias un='dtrx'
 
 alias pi="sudo pip install"
 alias pg='ps -Af | grep $1'
@@ -61,6 +62,8 @@ alias gpum="git push origin master"
 alias gpud="git push origin dev"
 alias gc="git checkout"
 alias ga="git add ."
+
+alias ack="ack-grep"
 
 say() { if [[ "${1}" =~ -[a-z]{2} ]]; then local lang=${1#-}; local text="${*#$1}"; else local lang=${LANG%_*}; local text="$*";fi; mplayer "http://translate.google.com/translate_tts?ie=UTF-8&tl=${lang}&q=${text}" &> /dev/null ; }
 
