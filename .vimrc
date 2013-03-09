@@ -13,6 +13,8 @@ set backspace=indent,eol,start "fixes backspacing in normal mode
 set guioptions-=T  "remove menu bar
 set modeline
 
+set modeline
+
 set noeb vb t_vb= "Stops screen flashing
 au GUIEnter * set vb t_vb=
 
