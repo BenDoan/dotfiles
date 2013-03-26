@@ -1,14 +1,4 @@
-#ZSH=$HOME/.oh-my-zsh
-#ZSH_THEME="steeef"
-#DISABLE_AUTO_UPDATE="true"
-#plugins=(battery)
-#source $ZSH/oh-my-zsh.sh
-
-
-alias ..="cd .."
-alias ...="cd ../.."
-
-export PATH=/usr/lib/ccache:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/ben/.local/bin:/home/ben/bin:/usr/local/go/bin
+export PATH=/usr/lib/ccache:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/ben/.local/bin:/home/ben/bin:/usr/local/go/bin:/home/ben/bin/sbt/bin/
 source dotfiles/steeef.zsh-theme
 
 # completion
@@ -55,6 +45,7 @@ alias lampp='sudo /opt/lampp/lampp'
 alias ducks='du -cksh * | sort -rn|head -11' #lists files and file sizes
 alias e=$EDITOR
 alias cpv="rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --"
+alias un="dtrx -v"
 
 # Computer Science
 alias cs_screens="xrandr --output VGA1 --mode 1680x1050 --above LVDS1 && awsetbg /home/ben/Pictures/bg.jpg"
