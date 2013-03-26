@@ -238,7 +238,10 @@ sunmap b
 sunmap e
 
 "CtrlP
-let g:ctrlp_map = '<space>'
+nnoremap <space> :CtrlPMixed<CR>
+nnoremap <leader>l :CtrlPLine<CR>
+nnoremap <leader>f :CtrlPFunky<CR>
+let g:ctrlp_extensions = ['funky']
 
 "Fswitch
 nmap <silent> <leader>of :FSHere<cr>

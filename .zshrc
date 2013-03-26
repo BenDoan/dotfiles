@@ -72,5 +72,17 @@ alias acs="apt-cache search"
 # git aliases
 alias gpm="git push origin master"
 alias gpd="git push origin dev"
-alias gc="git commit -am"
+alias gpum="git push origin master"
+alias gpud="git push origin dev"
+alias gc="git checkout"
 alias ga="git add ."
+
+alias un='dtrx'
+
+alias ack="ack-grep"
+
+say() { if [[ "${1}" =~ -[a-z]{2} ]]; then local lang=${1#-}; local text="${*#$1}"; else local lang=${LANG%_*}; local text="$*";fi; mplayer "http://translate.google.com/translate_tts?ie=UTF-8&tl=${lang}&q=${text}" &> /dev/null ; }
+
+PS1="%n@%m:%~%# "
+
+source $HOME/dotfiles/steeef.zsh-theme #theme
