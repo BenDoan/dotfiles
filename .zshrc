@@ -1,5 +1,5 @@
 export PATH=/usr/lib/ccache:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/ben/.local/bin:/home/ben/bin:/usr/local/go/bin:/home/ben/bin/sbt/bin/
-source dotfiles/steeef.zsh-theme
+source /home/ben/dotfiles/steeef.zsh-theme
 
 # completion
 setopt auto_menu # show completion menu on succesive tab press
@@ -44,6 +44,7 @@ alias ll='ls -l'
 alias lampp='sudo /opt/lampp/lampp'
 alias ducks='du -cksh * | sort -rn|head -11' #lists files and file sizes
 alias e=$EDITOR
+alias tmux="tmux -2"
 alias cpv="rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --"
 alias un="dtrx -v"
 
