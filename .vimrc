@@ -248,3 +248,6 @@ nmap <silent> <leader>of :FSHere<cr>
 
 "Pytest
 map <silent> <leader>tt :Pytest file<cr>
+
+"vim-slime
+let g:slime_target = "tmux"

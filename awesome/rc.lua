@@ -38,7 +38,7 @@ end
 beautiful.init("/home/ben/.config/awesome/themes/awesomebang/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "gnome-terminal"
+terminal = "roxterm"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -347,6 +347,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
+    awful.key({ modkey,           }, "F1", function () awful.util.spawn("xlock") end),
 
     awful.key({ modkey,           }, "j",
         function ()
@@ -479,6 +480,7 @@ awful.rules.rules = {
                      border_color = beautiful.border_normal,
                      focus = true,
                      keys = clientkeys,
+                     size_hints_honor = false,
                      buttons = clientbuttons } },
     { rule = { class = "MPlayer" },
       properties = { floating = true } },
@@ -490,6 +492,12 @@ awful.rules.rules = {
       properties = { floating = true } },
 
     { rule = { class = "Exe"},
+      properties = {floating = true}},
+
+   { rule = { instance = "plugin-container" },
+     properties = { floating = true } },
+
+    { rule = { class = "exe"},
       properties = {floating = true}}
     -- Set Firefox to always map on tags number 2 of screen 1.
     -- { rule = { class = "Firefox" },
