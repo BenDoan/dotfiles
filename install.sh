@@ -7,7 +7,9 @@ function link {
 
 #Directories
 mkdir ~/.config/
+
 ln -s "`pwd`/awesome/" ~/.config/
+ln -s "`pwd`/fish/" ~/.config/
 
 link '.oh-my-zsh/'
 link '.vim/'

@@ -22,14 +22,15 @@ set nofoldenable "disables folding
 
 set autoread "automatically reads a file once it has been changed
 set autowrite "saves the current file on certain actions
-set mouse=a
+set mouse=a "enables mouse for all modes
+set ttymouse=xterm2
 set showcmd "shows uncompleted commands in the status bar
 set cursorline "highlights cursor line
 set ttyfast "fast terminal connection
 set showmode "shows the current mode
 set laststatus=2 "status line is always on
 set gdefault "search/replace is globally done on a line by default
-set number
+set number "static line numbers
 set clipboard=unnamed
 set autochdir "cd into the dir of the current file
 set linebreak "wraps text, no eols
@@ -62,7 +63,9 @@ augroup autocmds
     au FocusLost * silent! :wa "saves all files when vim loses focus
     au WinLeave * silent! :wa
 
+    "Filetypes
     au BufNewFile,BufRead *.less set filetype=less
+    au BufNewFile,BufRead *.sc set filetype=scala
 
 
     "make stuff
@@ -72,6 +75,7 @@ augroup autocmds
     au BufNewFile,BufRead *.py set makeprg=python\ %
 
     au BufNewFile,BufRead *.go set makeprg=go\ build\ %
+    au BufWritePost *.tex silent !texi2pdf %
 augroup END
 
 "Search stuff
@@ -135,8 +139,6 @@ endif
 set t_Co=256
 colors badwolf
 
-"shows "special" characters
-"set list
 set listchars=eol:¬
 
 "KEY MAPS
@@ -160,18 +162,13 @@ noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
 "Selects the last pasted text
-
 nnoremap gp `[v`]
 
-nnoremap ; :
-
+noremap <C-q> <C-V>
 
 map <C-V>		"+gP
 cmap <C-V>		<C-R>+
 imap <C-V>		<C-R>+
-noremap <C-Q> <C-V>
-
-map <C-V> "+gP
 
 " Column scroll-binding on <leader>sb
 noremap <silent> <leader>sb :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
@@ -183,12 +180,14 @@ nmap <Leader>V :w<CR>:source $MYVIMRC
 " Center the line that the search result is on
 map N Nzz
 map n nzz
+
 map! <F1> <Esc>
 
 "keeps the visual selection when you tab a piece of text over
 vnoremap < <gv
 vnoremap > >gv
 
+"panic button
 nnoremap <f9> mzggg?G`z
 
 "keeps the cursor in the same place when joining lines
@@ -203,7 +202,7 @@ nnoremap <leader>i :set list!<cr>
 " Ack for the last search.
 nnoremap <silent> <leader>/ :execute "Ack! '" . substitute(substitute(substitute(@/, "\\\\<", "\\\\b", ""), "\\\\>", "\\\\b", ""), "\\\\v", "", "") . "'"<CR>
 
-"maps for ctags
+"maps for php ctags
 if executable('ctags')
     nmap <silent> <F4>
         \ :!ctags -f ./tags

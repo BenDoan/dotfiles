@@ -226,15 +226,15 @@ noremap <unique> <script> <silent> <Plug>SlimeConfig :<c-u>SlimeConfig<cr>
 
 if !exists("g:slime_no_mappings") || !g:slime_no_mappings
   if !hasmapto('<Plug>SlimeRegionSend', 'x')
-    xmap <c-c><c-c> <Plug>SlimeRegionSend
+    xmap <c-h> <Plug>SlimeRegionSend
   endif
 
   if !hasmapto('<Plug>SlimeParagraphSend', 'n')
-    nmap <c-c><c-c> <Plug>SlimeParagraphSend
+    nmap <c-h><c-c> <Plug>SlimeParagraphSend
   endif
 
   if !hasmapto('<Plug>SlimeConfig', 'n')
-    nmap <c-c>v <Plug>SlimeConfig
+    "nmap <c-c>v <Plug>SlimeConfig
   endif
 endif
 
