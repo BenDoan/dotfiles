@@ -89,4 +89,7 @@ say() { if [[ "${1}" =~ -[a-z]{2} ]]; then local lang=${1#-}; local text="${*#$1
 
 PS1="%n@%m:%~%# "
 
-source $HOME/dotfiles/steeef.zsh-theme #theme
+. $HOME/bin/z/z.sh
+
+#source $HOME/dotfiles/steeef.zsh-theme #theme
+source $HOME/dotfiles/liquidprompt/liquidprompt
