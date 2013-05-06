@@ -1,4 +1,4 @@
-export PATH=/usr/lib/ccache:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/ben/.local/bin:/home/ben/bin:/usr/local/go/bin:/home/ben/bin/sbt/bin/:/usr/local/games
+export PATH=/usr/lib/ccache:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/ben/.local/bin:/home/ben/bin:/usr/local/go/bin:/home/ben/bin/sbt/bin/:/usr/local/games:/home/ben/bin/sdk/tools/
 source /home/ben/dotfiles/steeef.zsh-theme
 
 # completion
@@ -7,9 +7,6 @@ setopt complete_in_word
 setopt always_to_end
 unset CASE_SENSITIVE
 
-setopt SHARE_HISTORY
-
-## Completions
 autoload -U compinit
 compinit -C
 
@@ -17,9 +14,13 @@ compinit -C
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"
 
-for c in cp rm chmod chown rename;do
-    alias $c="$c -v"
-done
+
+#history
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=~/.history
+
+setopt SHARE_HISTORY
 
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;32'
@@ -49,7 +50,7 @@ alias cpv="rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --"
 alias un="dtrx -v"
 
 # Computer Science
-alias cs_screens="xrandr --output VGA1 --mode 1680x1050 --above LVDS1 && awsetbg /home/ben/Pictures/bg.jpg"
+alias cs_screens="xrandr --output VGA1 --mode 1680x1050 --above LVDS1"
 alias home_connect="ssh -D 1337 -X ben@simcaster.dyndns.org"
 
 alias pi="sudo pip install"
@@ -90,6 +91,10 @@ say() { if [[ "${1}" =~ -[a-z]{2} ]]; then local lang=${1#-}; local text="${*#$1
 PS1="%n@%m:%~%# "
 
 . $HOME/bin/z/z.sh
+
+for c in mv cp rm chmod chown rename un;do
+    alias $c="$c -v"
+done
 
 #source $HOME/dotfiles/steeef.zsh-theme #theme
 source $HOME/dotfiles/liquidprompt/liquidprompt
