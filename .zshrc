@@ -49,7 +49,7 @@ alias cpv="rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --"
 alias un="dtrx -v"
 
 # Computer Science
-alias cs_screens="xrandr --output VGA1 --mode 1680x1050 --above LVDS1 && awsetbg /home/ben/Pictures/bg.jpg"
+alias cs_screens="xrandr --output LVDS1 --mode 1024x576 && xrandr --output VGA1 --mode 1680x1050 --above LVDS1"
 alias home_connect="ssh -D 1337 -X ben@simcaster.dyndns.org"
 
 alias pi="sudo pip install"
