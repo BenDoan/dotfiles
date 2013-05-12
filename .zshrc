@@ -1,11 +1,14 @@
 export PATH=/usr/lib/ccache:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/ben/.local/bin:/home/ben/bin:/usr/local/go/bin:/home/ben/bin/sbt/bin/:/usr/local/games:/home/ben/bin/sdk/tools/
-source /home/ben/dotfiles/steeef.zsh-theme
 
 # completion
 setopt auto_menu # show completion menu on succesive tab press
 setopt complete_in_word
 setopt always_to_end
 unset CASE_SENSITIVE
+
+setopt auto_remove_slash
+setopt auto_cd
+
 
 autoload -U compinit
 compinit -C
