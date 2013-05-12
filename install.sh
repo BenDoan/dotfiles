@@ -13,6 +13,7 @@ ln -s "`pwd`/fish/" ~/.config/
 
 link '.oh-my-zsh/'
 link '.vim/'
+link '.i3/'
 
 #Files
 link '.vimrc'

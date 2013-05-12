@@ -6,4 +6,4 @@ nm-applet &
 sh /home/ben/scripts/startup.sh &
 eval `gnome-keyring-daemon`
 udisks-glue &
-exec awesome
+exec i3
