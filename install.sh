@@ -23,6 +23,7 @@ link '.zshrc'
 link '.conkyrc'
 link '.Xresources'
 link '.tmux.conf'
+link '.i3status.conf'
 
 echo "==============="
 echo "Dotfiles linked"
