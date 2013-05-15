@@ -1,8 +1,5 @@
-#programs
-conky &
-
 #applets
-volumeicon || gnome-sound-applet &
+volumeicon &
 nm-applet &
 
 #daemons
@@ -19,4 +16,4 @@ xset s off &
 
 sh /home/ben/scripts/startup.sh &
 DEFAULT_SESSION=i3
-exec i3 -V >> ~/.i3/i3log 2>&1
+exec i3
