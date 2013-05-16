@@ -55,7 +55,7 @@ alias cs_screens="xrandr --output LVDS1 --mode 1024x576 && xrandr --output VGA1 
 alias home_connect="ssh -D 1337 -X ben@simcaster.dyndns.org"
 
 alias pi="sudo pip install"
-alias pg='ps -Af | grep $1'
+alias pg='ps -Af | grep -v grep | grep $1'
 
 # yum aliases
 alias ys="yum search"
