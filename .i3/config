@@ -129,6 +129,6 @@ bar {
         status_command ~/.i3/conky
 }
 
-focus_follows_mouse no
+focus_follows_mouse yes
 workspace_auto_back_and_forth yes
 new_window 1pixel
