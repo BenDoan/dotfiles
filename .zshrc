@@ -97,5 +97,4 @@ for c in mv cp rm chmod chown rename link;do
     alias $c="$c -v"
 done
 
-#source $HOME/dotfiles/steeef.zsh-theme #theme
 source $HOME/dotfiles/liquidprompt/liquidprompt

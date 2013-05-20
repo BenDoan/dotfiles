@@ -250,3 +250,19 @@ map <silent> <leader>tt :Pytest file<cr>
 
 "vim-slime
 let g:slime_target = "tmux"
+function! Chomp(str)
+  return substitute(a:str, '\n$', '', '')
+endfunction
+
+function! DmenuOpen(cmd)
+  let fname = Chomp(system("git ls-files | dmenu -i -l 20 -p " . a:cmd))
+  if empty(fname)
+    return
+  endif
+  execute a:cmd . " " . fname
+endfunction
+
+" use ctrl-t to open file in a new tab
+" use ctrl-f to open file in current buffer
+map <c-t> :call DmenuOpen("tabe")<cr>
+map <c-f> :call DmenuOpen("e")<cr>
