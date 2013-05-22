@@ -132,3 +132,5 @@ bar {
 focus_follows_mouse yes
 workspace_auto_back_and_forth yes
 new_window 1pixel
+
+bindsym $MOD+o exec i3lock -c 333333
