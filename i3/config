@@ -7,7 +7,7 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec roxterm
 
 # kill focused window
 bindsym $mod+Shift+Q kill
@@ -134,3 +134,5 @@ workspace_auto_back_and_forth yes
 new_window 1pixel
 
 bindsym $MOD+o exec i3lock -c 333333
+bindcode 237 exec asus-kbd-backlight down
+bindcode 238 exec asus-kbd-backlight up

@@ -1,11 +1,10 @@
 #applets
 volumeicon &
-nm-applet &
 
 #daemons
 dunst &
 eval `gnome-keyring-daemon`
-udisks-glue &
+udisks-glue -c ~/dotfiles/udisks-glue.conf &
 
 #settings
 xsetroot -solid '#335234' &

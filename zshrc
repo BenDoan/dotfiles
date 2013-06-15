@@ -72,6 +72,10 @@ alias apu="sudo aptitude update"
 
 alias acs="apt-cache search"
 
+#arch
+alias y="yaourt"
+alias update="yaourt -Syua"
+
 # git aliases
 alias gpm="git push origin master"
 alias gpd="git push origin dev"
@@ -80,7 +84,6 @@ alias gpud="git push origin dev"
 alias gc="git checkout"
 alias ga="git add ."
 
-alias ack="ack-grep"
 
 alias -g ...='../../' #cd ...
 alias -g ....='../../../' #cd ....
