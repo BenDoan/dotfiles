@@ -266,3 +266,4 @@ endfunction
 " use ctrl-f to open file in current buffer
 map <c-t> :call DmenuOpen("tabe")<cr>
 map <c-f> :call DmenuOpen("e")<cr>
+let g:notes_directories = ['~/notes']

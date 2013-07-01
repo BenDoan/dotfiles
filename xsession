@@ -12,6 +12,7 @@ pactl set-sink-volume 0 '70%' &
 xset -b &
 xset dpms &
 xset s off &
+setxkbmap -option ctrl:nocaps
 
 sh /home/ben/scripts/startup.sh &
 DEFAULT_SESSION=i3
