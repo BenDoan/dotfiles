@@ -1,4 +1,4 @@
-export PATH=/usr/lib/ccache:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/ben/.local/bin:/home/ben/bin:/usr/local/go/bin:/home/ben/bin/sbt/bin/:/usr/local/games:/home/ben/bin/sdk/tools/:/home/ben/bin/scripts/
+export PATH=/usr/lib/ccache:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/ben/.local/bin:/home/ben/bin:/usr/local/go/bin:/home/ben/bin/sbt/bin/:/usr/local/games:/home/ben/bin/sdk/tools/:/home/ben/bin/scripts
 
 # completion
 setopt auto_menu # show completion menu on succesive tab press
@@ -51,7 +51,7 @@ alias tmux="tmux -2"
 alias cpv="rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --"
 alias un="dtrx -v"
 
-alias cs_screens="xrandr --output LVDS1 --mode 1024x576 && xrandr --output VGA1 --mode 1680x1050 --above LVDS1"
+alias home_screens="xrandr --output eDP1 --mode 1920x1080 && xrandr --output VGA1 --mode 1440x900 --right-of eDP1"
 alias home_connect="ssh -D 1337 -X ben@simcaster.dyndns.org"
 
 alias pi="sudo pip install"

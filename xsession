@@ -5,6 +5,7 @@ volumeicon &
 dunst &
 eval `gnome-keyring-daemon`
 udisks-glue -c ~/dotfiles/udisks-glue.conf &
+redshift -l 41.478747:-96.402283 -t 6500:3500 &
 
 #settings
 xsetroot -solid '#335234' &
