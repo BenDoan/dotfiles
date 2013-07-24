@@ -27,6 +27,10 @@ if [[ ! -d ~/.config ]]; then
     mkdir ~/.config/
 fi
 
+if [[ ! -d ~/dotfiles/vimundo ]]; then
+    mkdir ~/dotfiles/vimundo
+fi
+
 #Directories
 link_config 'awesome/'
 link_config 'fish/'

@@ -97,7 +97,7 @@ set softtabstop=4
 set expandtab
 
 "Undo stuff
-set undodir=~/vimundo
+set undodir=~/dotfiles/vimundo
 set undofile
 set undolevels=1000
 set undoreload=10000
