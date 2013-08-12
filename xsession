@@ -6,6 +6,8 @@ dunst &
 eval `gnome-keyring-daemon`
 udisks-glue -c ~/dotfiles/udisks-glue.conf &
 redshift -l 41.478747:-96.402283 -t 6500:3500 &
+bash /home/ben/scripts/external_monitor.sh &
+touchegg &
 
 #settings
 xsetroot -solid '#335234' &
@@ -13,7 +15,8 @@ pactl set-sink-volume 0 '70%' &
 xset -b &
 xset dpms &
 xset s off &
-setxkbmap -option ctrl:nocaps
+setxkbmap -option ctrl:nocaps &
+asus-kbd-backlight max &
 
 sh /home/ben/scripts/startup.sh &
 DEFAULT_SESSION=i3

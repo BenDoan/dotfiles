@@ -1,4 +1,5 @@
-export PATH=/usr/lib/ccache:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/ben/.local/bin:/home/ben/bin:/usr/local/go/bin:/home/ben/bin/sbt/bin/:/usr/local/games:/home/ben/bin/sdk/tools/:/home/ben/bin/scripts:/home/ben/scripts
+export PATH=/usr/lib/ccache:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/ben/.local/bin:/home/ben/bin:/usr/local/go/bin:/home/ben/bin/sbt/bin/:/usr/local/games:/home/ben/bin/sdk/tools/:/home/ben/bin/scripts:/home/ben/scripts:/home/ben/code/golang/bin
+export GOPATH=/home/ben/code/golang
 
 # completion
 setopt auto_menu # show completion menu on succesive tab press
@@ -76,6 +77,8 @@ alias acs="apt-cache search"
 alias y="yaourt"
 alias update="yaourt -Syua"
 
+alias i="sudo pacman -S"
+
 # git aliases
 alias gpm="git push origin master"
 alias gpd="git push origin dev"
@@ -93,8 +96,6 @@ alias alert_helper='history|tail -n1|sed -e "s/^\s*[0-9]\+\s*//" -e "s/;\s*alert
 alias alert='notify-send -i /usr/share/icons/gnome/32x32/apps/gnome-terminal.png "[$?] $(alert_helper)"'
 
 say() { if [[ "${1}" =~ -[a-z]{2} ]]; then local lang=${1#-}; local text="${*#$1}"; else local lang=${LANG%_*}; local text="$*";fi; mplayer "http://translate.google.com/translate_tts?ie=UTF-8&tl=${lang}&q=${text}" &> /dev/null ; }
-
-. $HOME/.bin/z/z.sh
 
 for c in mv cp rm chmod chown rename link;do
     alias $c="$c -v"
