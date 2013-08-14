@@ -47,6 +47,8 @@ link 'conkyrc'
 link 'tmux.conf'
 link 'i3status.conf'
 
+ln ~/.xsession ~/.xinitrc
+
 echo "==============="
 echo "Dotfiles linked"
 echo "==============="
