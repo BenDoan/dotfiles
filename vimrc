@@ -32,7 +32,6 @@ set laststatus=2 "status line is always on
 set gdefault "search/replace is globally done on a line by default
 set number "static line numbers
 set clipboard=unnamed
-set autochdir "cd into the dir of the current file
 set linebreak "wraps text, no eols
 set scrolloff=2   "scrollspace above cursor
 set cmdheight=1 "sets command window at bottom
