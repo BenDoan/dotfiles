@@ -198,6 +198,9 @@ nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
 " Toggle [i]nvisible characters
 nnoremap <leader>i :set list!<cr>
 
+" disable :X
+cmap X x
+
 " Ack for the last search.
 nnoremap <silent> <leader>/ :execute "Ack! '" . substitute(substitute(substitute(@/, "\\\\<", "\\\\b", ""), "\\\\>", "\\\\b", ""), "\\\\v", "", "") . "'"<CR>
 
