@@ -17,23 +17,19 @@ compinit -C
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"
 
+zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
+zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
 
 #history
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=20000
+SAVEHIST=20000
 HISTFILE=~/.history
-
-setopt SHARE_HISTORY
 
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;32'
 
 export EDITOR="vim"
 export XDG_CURRENT_DESKTOP=GNOME
-
-alias man='nocorrect man'
-alias mkdir='nocorrect mkdir'
-alias mv='nocorrect mv'
 
 # 10 second wait for delete everythings
 setopt RM_STAR_WAIT
@@ -50,18 +46,18 @@ alias ducks='du -cksh * | sort -rn|head -11' #lists files and file sizes
 alias e=$EDITOR
 alias tmux="tmux -2"
 alias cpv="rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --"
-alias un="dtrx -v"
+alias un="atool -x"
 
 alias home_screens="xrandr --output eDP1 --mode 1920x1080 && xrandr --output VGA1 --mode 1440x900 --right-of eDP1"
-alias home_connect="ssh -D 1337 -X ben@simcaster.dyndns.org"
 
 alias pi="sudo pip install"
 alias pg='ps -Af | grep -v grep | grep $1'
 
+
 # yum aliases
 alias ys="yum search"
 alias yu="sudo yum update"
-alias yi="sudo yum install"
+alias yi="sudo yum install -y"
 alias yr="sudo yum remove"
 
 # aptitude aliases
@@ -76,7 +72,6 @@ alias acs="apt-cache search"
 #arch
 alias y="yaourt"
 alias update="yaourt -Syua"
-
 alias i="sudo pacman -S"
 
 # git aliases
@@ -100,5 +95,12 @@ say() { if [[ "${1}" =~ -[a-z]{2} ]]; then local lang=${1#-}; local text="${*#$1
 for c in mv cp rm chmod chown rename link;do
     alias $c="$c -v"
 done
+
+common_programs = "git atool gimp mplayer"
+fedora_programs = "vim"
+debian_programs = "build-essential chromium-browser gvim-gtk"
+
+debian_install = 'sudo apt-get install $common_programs $debian_programs -y'
+fedora_install = 'sudo yum install $common_programs $fedora_programs -y && sudo yum groupinstall "Development Tools"'
 
 source $HOME/dotfiles/liquidprompt/liquidprompt
