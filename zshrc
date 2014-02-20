@@ -1,5 +1,5 @@
-export PATH=/usr/lib/ccache:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/ben/.local/bin:/home/ben/bin:/usr/local/go/bin:/home/ben/bin/sbt/bin/:/usr/local/games:/home/ben/bin/sdk/tools/:/home/ben/bin/scripts:/home/ben/scripts:/home/ben/code/golang/bin
 export GOPATH=/home/ben/code/golang
+export DISTRO=$(<~/.distro)
 
 # completion
 setopt auto_menu # show completion menu on succesive tab press
@@ -47,6 +47,7 @@ alias e=$EDITOR
 alias tmux="tmux -2"
 alias cpv="rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --"
 alias un="atool -x"
+alias o="xdg-open"
 
 alias home_screens="xrandr --output eDP1 --mode 1920x1080 && xrandr --output VGA1 --mode 1440x900 --right-of eDP1"
 
@@ -96,11 +97,12 @@ for c in mv cp rm chmod chown rename link;do
     alias $c="$c -v"
 done
 
-common_programs = "git atool gimp mplayer"
-fedora_programs = "vim"
-debian_programs = "build-essential chromium-browser gvim-gtk"
+#common_programs=("git" "atool" "gimp" "mplayer")
+#fedora_programs=("vim")
+#debian_programs=("build-essential" "chromium-browser" "gvim-gtk")
 
-debian_install = 'sudo apt-get install $common_programs $debian_programs -y'
-fedora_install = 'sudo yum install $common_programs $fedora_programs -y && sudo yum groupinstall "Development Tools"'
+#alias expanded="${common_programs[@]}"
+#alias debian_install="sudo apt-get install ${common_programs[@]} -y"
+#alias fedora_install='sudo yum install $common_programs $fedora_programs -y && sudo yum groupinstall "Development Tools"'
 
 source $HOME/dotfiles/liquidprompt/liquidprompt

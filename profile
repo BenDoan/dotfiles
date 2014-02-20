@@ -1,0 +1,1 @@
+export PATH=/usr/lib/ccache:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/ben/.local/bin:/home/ben/bin:/usr/local/go/bin:/usr/local/games:/home/ben/bin/scripts:/home/ben/scripts:/home/ben/code/golang/bin
