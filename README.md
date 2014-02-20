@@ -1,4 +1,5 @@
-My personal dotfiles, just clone and use "./dots.sh install" to link the files and "./dots.sh uninstall" to unlink.
+My personal dotfiles
+Clone and use "./dots.sh install" to link the files and "./dots.sh uninstall" to unlink.
 
 LICENSE
 =======
