@@ -97,7 +97,7 @@ for c in mv cp rm chmod chown rename link;do
     alias $c="$c -v"
 done
 
-#common_programs=("git" "atool" "gimp" "mplayer" "meld")
+#common_programs=("git" "atool" "gimp" "mplayer" "meld" "gitk")
 #fedora_programs=("vim")
 #debian_programs=("build-essential" "chromium-browser" "gvim-gtk")
 
