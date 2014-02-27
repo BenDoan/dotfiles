@@ -163,12 +163,6 @@ noremap <C-l> <C-w>l
 "Selects the last pasted text
 nnoremap gp `[v`]
 
-noremap <C-q> <C-V>
-
-map <C-V>		"+gP
-cmap <C-V>		<C-R>+
-imap <C-V>		<C-R>+
-
 " Column scroll-binding on <leader>sb
 noremap <silent> <leader>sb :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
 
