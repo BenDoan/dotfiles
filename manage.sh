@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # add new dotfiles here
-dotfiles=(vim i3 fonts vimrc xsession zshrc conkyrc tmux.conf i3status.conf profile)
+dotfiles=(vim i3 fonts vimrc xsession zshrc conkyrc tmux.conf i3status.conf profile gitignore)
 dotfiles_config=(awesome fish)
 
 function set_distro {
