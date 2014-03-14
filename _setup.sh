@@ -9,5 +9,10 @@ git config --global alias.s "status"
 git config --global alias.d "diff"
 git config --global alias.p "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit -p"
 git config --global alias.gg "rebase --abort"
+git config --global alias.g "grep --break --heading --line-number"
+
+
 
 git config --global core.excludesfiles ~/.gitignore_global
+
+git config --global grep.lineNumber true
