@@ -106,7 +106,7 @@ case $1 in
     "install" )
         set_distro
         link_files
-	./_setup.sh
+        ./_setup.sh
         ;;
     "remove" )
         unlink_files
