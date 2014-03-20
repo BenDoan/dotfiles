@@ -9,6 +9,14 @@ red='\e[0;31m'
 green='\e[0;32m'
 NC='\e[0m'
 
+if [ "$1" == "-h" ] ||
+    [ "$1" == "--help" ]  ||
+    [ "$1" == "help" ] ||
+    [ "$1" == "" ]; then
+  echo "Usage: `basename $0` [install | remove | status]"
+  exit 0
+fi
+
 function set_distro {
     if grep -q "Fedora" /etc/issue; then
         echo fedora > ~/.distro
