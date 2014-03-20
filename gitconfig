@@ -1,0 +1,17 @@
+[user]
+	email = ben@bendoan.me
+	name = Ben Doan
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+	s = status
+	d = diff
+	p = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit -p
+	l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+	gg = rebase --abort
+	g = grep --break --heading --line-number
+[color]
+	ui = auto
+[core]
+	excludesfiles = /home/ben/.gitignore_global
+[grep]
+	lineNumber = true

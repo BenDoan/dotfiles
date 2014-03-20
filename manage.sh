@@ -1,28 +1,29 @@
 #!/bin/bash
 
 # add new dotfiles here
-dotfiles=(vim i3 fonts vimrc xsession zshrc conkyrc tmux.conf i3status.conf profile gitignore_global)
+dotfiles=(vim i3 fonts vimrc xsession zshrc conkyrc tmux.conf i3status.conf profile gitignore_global gitconfig)
 dotfiles_config=(awesome fish)
+
+#colors
+red='\e[0;31m'
+green='\e[0;32m'
+NC='\e[0m'
 
 function set_distro {
     if grep -q "Fedora" /etc/issue; then
         echo fedora > ~/.distro
-    fi
-
-    if grep -q "Debian" /etc/issue; then
+    elif grep -q "CentOS" /etc/issue; then
+        echo fedora > ~/.distro
+    elif grep -q "Debian" /etc/issue; then
         echo debian > ~/.distro
-    fi
-
-    if grep -q "Mint" /etc/issue; then
+    elif grep -q "Mint" /etc/issue; then
         echo debian > ~/.distro
-    fi
-
-    if grep -q "Ubuntu" /etc/issue; then
+    elif grep -q "Ubuntu" /etc/issue; then
         echo debian > ~/.distro
-    fi
-
-    if grep -q "Arch" /etc/issue; then
+    elif grep -q "Arch" /etc/issue; then
         echo arch > ~/.distro
+    else
+        echo none > ~/.distro
     fi
 }
 
@@ -101,6 +102,24 @@ function unlink_files {
     done
 }
 
+function print_status {
+    printf %b "${green}Linked: "
+    for item in ${dotfiles[*]}; do
+        if [[ -h ~/.$item ]]; then
+            printf %b "$item "
+        fi
+    done
+    printf %b "${NC}\n"
+
+    printf %b "${red}Unlinked: "
+    for item in ${dotfiles[*]}; do
+        if [[ ! -h ~/.$item ]]; then
+            printf %b "$item "
+        fi
+    done
+    printf %b "${NC}\n"
+}
+
 
 case $1 in
     "install" )
@@ -110,5 +129,8 @@ case $1 in
         ;;
     "remove" )
         unlink_files
+        ;;
+    "status" )
+        print_status
         ;;
 esac
