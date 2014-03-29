@@ -9,11 +9,13 @@ red='\e[0;31m'
 green='\e[0;32m'
 NC='\e[0m'
 
+usage="Usage: `basename $0` [install | remove | status]"
+
 if [ "$1" == "-h" ] ||
     [ "$1" == "--help" ]  ||
     [ "$1" == "help" ] ||
     [ "$1" == "" ]; then
-  echo "Usage: `basename $0` [install | remove | status]"
+  echo "$usage"
   exit 0
 fi
 
@@ -140,5 +142,8 @@ case $1 in
         ;;
     "status" )
         print_status
+        ;;
+    * )
+        echo "$usage"
         ;;
 esac
