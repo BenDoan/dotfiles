@@ -96,10 +96,12 @@ set softtabstop=4
 set expandtab
 
 "Undo stuff
-set undodir=~/dotfiles/vimundo
-set undofile
-set undolevels=1000
-set undoreload=10000
+if v:version > 702
+    set undodir=~/dotfiles/vimundo
+    set undofile
+    set undolevels=1000
+    set undoreload=10000
+endif
 
 "Autocomplete menu
 set wildmenu

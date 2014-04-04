@@ -9,6 +9,7 @@
 	l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 	gg = rebase --abort
 	g = grep --break --heading --line-number
+	a = add -A .
 [color]
 	ui = auto
 [core]
