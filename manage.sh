@@ -16,7 +16,7 @@ if [ "$1" == "-h" ] ||
     [ "$1" == "help" ] ||
     [ "$1" == "" ]; then
   echo "$usage"
-  exit 0
+  exit 1
 fi
 
 function set_distro {
@@ -34,6 +34,7 @@ function set_distro {
         echo arch > ~/.distro
     else
         echo none > ~/.distro
+        echo "Error: Could not identify distro"
     fi
 }
 
@@ -137,7 +138,7 @@ case $1 in
         link_files
         ./_setup.sh
         ;;
-    "remove" )
+    "uninstall" )
         unlink_files
         ;;
     "status" )

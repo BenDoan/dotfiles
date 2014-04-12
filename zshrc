@@ -100,4 +100,8 @@ for c in tar mv cp rm chmod chown rename link;do
     alias $c="$c -v"
 done
 
-source $HOME/dotfiles/liquidprompt/liquidprompt
+. $HOME/dotfiles/liquidprompt/liquidprompt
+
+if [ -d "~/bin/z" ]; then
+    . $HOME/bin/z.sh > /dev/null
+fi
