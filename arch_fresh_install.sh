@@ -1,5 +1,4 @@
-#!/bin/bash
-programs="zsh vim vim-X11 atool gimp meld gitk firefox python-pip python3 python3-pip libreoffice vlc curl tmux dmenu acpi emacs ImageMagick java-1.8.0-openjdk mosh wine git"
+programs="conky roxterm htop ntp emacs libreoffice rsync virtualbox virtualbox-host-modules zenity zsh gvim meld firefox chromium python2 python2-pip vlc curl tmux dmenu i3 acpi ImageMagick mosh git"
 
 ~/dotfiles/manage.sh install
 git clone https://github.com/BenDoan/scripts ~/scripts
@@ -10,17 +9,12 @@ mkdir ~/downloads ~/documents ~/music ~/pictures >& /dev/null
 echo ==============================
 echo = Updating programs
 echo ==============================
-sudo yum update
+sudo pacman -Syu
 
 echo ==============================
 echo = Installing programs
 echo ==============================
-sudo yum install $programs -y
-
-echo ==============================
-echo = Installing Dev Tools
-echo ==============================
-sudo yum groupinstall "Development Tools" -y
+sudo pacman -S $programs
 
 echo ==============================
 echo = Updating shell
