@@ -15,7 +15,6 @@ xset -b &
 xset dpms &
 xset s 100000 100000 &
 setxkbmap -option ctrl:nocaps &
-asus-kbd-backlight max &
 
 sh /home/ben/scripts/startup.sh &
 DEFAULT_SESSION=i3
