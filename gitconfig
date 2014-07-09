@@ -10,6 +10,7 @@
 	gg = rebase --abort
 	g = grep --break --heading --line-number
 	a = add -A .
+    permission-reset = git diff -p -R | grep -E "^(diff|(old|new) mode)" | git apply
 [color]
 	ui = auto
 [core]
