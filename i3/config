@@ -135,7 +135,3 @@ new_window 1pixel
 
 #locks screen
 bindsym $MOD+o exec i3lock -c 333333
-
-#zenbook backlight keybindings
-bindcode 237 exec asus-kbd-backlight down
-bindcode 238 exec asus-kbd-backlight up
