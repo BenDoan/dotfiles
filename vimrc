@@ -134,6 +134,13 @@ let g:badwolf_html_link_underline = 0
 if has("win32")
     set guifont=Consolas:h11:cANSI
 elseif has("gui")
+    style "no-resize-handle"
+    {
+        GtkWindow::resize-grip-height = 0
+        GtkWindow::resize-grip-width = 0
+    }
+
+    class "GtkWidget" style "no-resize-handle"
     set guifont=Source\ Code\ Pro\ 10
 else
 endif
