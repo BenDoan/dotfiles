@@ -212,6 +212,8 @@ if executable('ctags')
     set tags=./tags,tags
 endif
 
+nnoremap ,cd :cd %:p:h<CR>
+
 
 "PLUGINS
 """""""""""""""
