@@ -12,8 +12,7 @@ bindsym $mod+Return exec roxterm
 # kill focused window
 bindsym $mod+Shift+Q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec rofi -rnow
 
 # change focus
 bindsym $mod+h focus left

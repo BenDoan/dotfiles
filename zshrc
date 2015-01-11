@@ -29,8 +29,6 @@ HISTSIZE=20000
 SAVEHIST=20000
 HISTFILE=~/.history
 
-export GREP_OPTIONS='--color=auto'
-export GREP_COLOR='1;32'
 export EDITOR="vim"
 export XDG_CURRENT_DESKTOP=GNOME
 
@@ -78,6 +76,7 @@ alias acs="apt-cache search"
 alias y="yaourt"
 alias update="yaourt -Syua"
 alias i="sudo pacman -S"
+#list_packages(){"expac -HM "%011m\t%-20n\t%10d" $( comm -23 <(pacman -Qqen|sort) <(pacman -Qqg base base-devel|sort) ) | sort -n";}
 
 # git aliases
 alias gpm="git push origin master"
@@ -108,3 +107,6 @@ PERL5LIB="/home/ben/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/ben/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/ben/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/ben/perl5"; export PERL_MM_OPT;
+
+source $HOME/.profile
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # add new dotfiles here
-dotfiles=(vim i3 fonts vimrc xsession zshrc conkyrc tmux.conf i3status.conf profile gitignore_global gitconfig)
+dotfiles=(vim i3 fonts vimrc xsession zshrc conkyrc tmux.conf i3status.conf profile gitignore_global gitconfig compton.conf)
 dotfiles_config=(awesome fish)
 
 #colors

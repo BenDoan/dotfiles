@@ -4,7 +4,7 @@ programs="conky roxterm htop ntp emacs libreoffice rsync virtualbox virtualbox-h
 git clone https://github.com/BenDoan/scripts ~/scripts
 
 rmdir ~/Desktop ~/Downloads ~/Music ~/Public ~/Videos ~/Pictures ~/Templates >& /dev/null
-mkdir ~/downloads ~/documents ~/music ~/pictures >& /dev/null
+mkdir ~/downloads ~/documents ~/music ~/pictures ~/bin >& /dev/null
 
 echo ==============================
 echo = Updating programs

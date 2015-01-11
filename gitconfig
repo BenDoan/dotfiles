@@ -17,3 +17,5 @@
 	excludesfiles = /home/ben/.gitignore_global
 [grep]
 	lineNumber = true
+[rerere]
+	enabled = 1

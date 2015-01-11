@@ -155,7 +155,7 @@ cmap w!! w !sudo tee % >/dev/null
 "causes j and k to scroll by the visible line
 nnoremap j gj
 nnoremap k gk
-nnoremap <leader><space> :noh<cr>
+nnoremap <leader><space> :nohl<cr>
 
 "Split navigation
 noremap <C-h> <C-w>h

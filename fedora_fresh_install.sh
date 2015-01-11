@@ -5,7 +5,7 @@ programs="zsh vim vim-X11 atool gimp meld gitk firefox python-pip python3 python
 git clone https://github.com/BenDoan/scripts ~/scripts
 
 rmdir ~/Desktop ~/Downloads ~/Music ~/Public ~/Videos ~/Pictures ~/Templates >& /dev/null
-mkdir ~/downloads ~/documents ~/music ~/pictures >& /dev/null
+mkdir ~/downloads ~/documents ~/music ~/pictures ~/bin >& /dev/null
 
 echo ==============================
 echo = Updating programs

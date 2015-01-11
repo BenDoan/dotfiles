@@ -18,4 +18,8 @@ setxkbmap -option ctrl:nocaps &
 
 sh /home/ben/scripts/startup.sh &
 DEFAULT_SESSION=i3
+compton -b
+
+sleep 2s &
+
 exec i3
