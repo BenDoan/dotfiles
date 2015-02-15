@@ -20,16 +20,17 @@ def install(args):
     # link dotfiles
     for dotfile in dotfiles:
         dest = path.expanduser("~/.{}".format(dotfile))
+        source = path.expanduser("~/dotfiles/{}".format(dotfile))
         if path.exists(dest) and not path.islink(dest):
             print("Error: regular file exists for {}".format(dotfile))
         elif not path.islink(dest):
-            os.symlink(path.join("~/dotfiles", dotfile), dest)
+            os.symlink(source, dest)
             print("Linking {}".format(dotfile))
 
-    # setup directories
+    # setup misc directories
     vimundo_dir = path.expanduser("~/dotfiles/vimundo")
     if not path.exists(vimundo_dir):
-        if path.exists("~/dotfiles"):
+        if path.exists(path.expanduser("~/dotfiles")):
             os.mkdir(vimundo)
         else:
             print("Error: can't create vimundo folder")
@@ -39,7 +40,7 @@ def install(args):
     if not path.islink(xinit_file):
         os.link(path.expanduser("~/.xsession"), xinit_file)
 
-def remove(args):
+def uninstall(args):
     print("Unlinking dotfiles...")
 
     # link dotfiles
@@ -76,8 +77,8 @@ def main():
     sp_install = sp.add_parser("install", help="Installs (links) the user's dotfiles")
     sp_install.set_defaults(func=install)
 
-    sp_remove = sp.add_parser("remove", help="Removes (unlinks) the user's dotfiles")
-    sp_remove.set_defaults(func=remove)
+    sp_remove = sp.add_parser("uninstall", help="Removes (unlinks) the user's dotfiles")
+    sp_remove.set_defaults(func=uninstall)
 
     sp_status = sp.add_parser("status", help="Prints the status of the user's dotfiles")
     sp_status.set_defaults(func=status)
