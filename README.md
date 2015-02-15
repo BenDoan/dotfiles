@@ -1,5 +1,5 @@
 My personal dotfiles
-Clone and use "./manage.sh install" to link the files and "./manage.sh uninstall" to unlink.
+Clone and use "./manage.py install" to link the files and "./manage.py uninstall" to unlink.
 
 LICENSE
 =======
