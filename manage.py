@@ -3,11 +3,11 @@
 import argparse
 import os
 import platform
+import subprocess
 
 from os import path
 
 dotfiles = ["vim", "i3", "fonts", "vimrc", "xsession", "zshrc", "conkyrc", "tmux.conf", "i3status.conf", "profile", "gitignore_global", "gitconfig", "compton.conf"]
-dotfiles_config = ["awesome", "fish" ]
 
 red = '\033[91m'
 green = '\033[92m'
@@ -39,6 +39,8 @@ def install(args):
     xinit_file = path.expanduser("~/.xinitrc")
     if not path.islink(xinit_file):
         os.link(path.expanduser("~/.xsession"), xinit_file)
+
+    subprocess.call(['_setup.sh'])
 
 def uninstall(args):
     print("Unlinking dotfiles...")
