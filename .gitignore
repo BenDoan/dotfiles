@@ -1,3 +1,5 @@
 .netrwhist
 vimundo
 nimcache
+vim/bundle/*
+!vim/bundle/neobundle.vim

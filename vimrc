@@ -1,4 +1,53 @@
-call pathogen#infect()
+" Note: Skip initialization for vim-tiny or vim-small.
+if !1 | finish | endif
+
+if has('vim_starting')
+    if &compatible
+        set nocompatible               " Be iMproved
+    endif
+
+    " Required:
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" My Bundles here:
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
+NeoBundle 'sjl/badwolf'
+NeoBundle 'bkad/CamelCaseMotion'
+NeoBundle 'chrisbra/Colorizer'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'lepture/vim-jinja'
+NeoBundle 'JuliaLang/julia-vim'
+NeoBundle 'zah/nimrod.vim'
+NeoBundle 'ervandew/supertab'
+NeoBundle 'HorseMD/tf2syntax.vim'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'derekwyatt/vim-fswitch'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-eunuch'
+NeoBundle 'tpope/vim-speeddating'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'bruno-/vim-husk'
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'Shougo/unite.vim'
+
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
 
 behave xterm
 
@@ -214,6 +263,18 @@ endif
 
 nnoremap ,cd :cd %:p:h<CR>
 
+fun! JumpToDef()
+  if exists("*GotoDefinition_" . &filetype)
+    call GotoDefinition_{&filetype}()
+  else
+    exe "norm! \<C-]>"
+  endif
+endf
+
+" Jump to tag
+nn <M-g> :call JumpToDef()<cr>
+ino <M-g> <esc>:call JumpToDef()<cr>i
+
 
 "PLUGINS
 """""""""""""""
@@ -267,3 +328,5 @@ endfunction
 map <c-f> :call DmenuOpen("e")<cr>
 
 let g:notes_directories = ['~/notes']
+
+let g:user_emmet_leader_key='<C-e>'
