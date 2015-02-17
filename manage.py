@@ -40,7 +40,9 @@ def install(args):
     if not path.islink(xinit_file):
         os.link(path.expanduser("~/.xsession"), xinit_file)
 
-    subprocess.call(['_setup.sh'])
+    subprocess.call(['bash', '_setup.sh'])
+
+    subprocess.call(['git', 'submodule', 'update'])
 
 def uninstall(args):
     print("Unlinking dotfiles...")
