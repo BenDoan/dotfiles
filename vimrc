@@ -54,6 +54,7 @@ behave xterm
 
 filetype plugin on
 filetype plugin indent on
+syntax on
 
 set hidden   "Doesn't close buffers
 set history=1000  " remember more commands and search history
