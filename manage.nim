@@ -2,6 +2,7 @@ import parseopt2
 import os
 import terminal
 import strutils
+import osproc
 
 const dotfiles = ["vim", "i3", "fonts", "vimrc", "xsession", "zshrc", "conkyrc", "tmux.conf", "i3status.conf", "profile", "gitignore_global", "gitconfig", "compton.conf"]
 
@@ -14,9 +15,12 @@ proc install() =
 
         if os.existsFile(dest) and not os.symlinkExists(dest):
             echo "Error: regular file exists for " & dotfile
-        else:
+        elif not os.symlinkExists(dest):
             os.createSymlink(source, dest)
             echo "Linking " & dotfile
+
+    discard osproc.execCmd("git submodule update --init")
+    discard osproc.execCmd("bash _setup.sh")
 
 proc uninstall() =
     echo "Unlinking dotfiles..."
