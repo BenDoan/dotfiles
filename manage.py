@@ -27,19 +27,6 @@ def install(args):
             os.symlink(source, dest)
             print("Linking {}".format(dotfile))
 
-    # setup misc directories
-    vimundo_dir = path.expanduser("~/dotfiles/vimundo")
-    if not path.exists(vimundo_dir):
-        if path.exists(path.expanduser("~/dotfiles")):
-            os.mkdir(vimundo_dir)
-        else:
-            print("Error: can't create vimundo folder")
-
-    # link extra files
-    xinit_file = path.expanduser("~/.xinitrc")
-    if not path.islink(xinit_file):
-        os.link(path.expanduser("~/.xsession"), xinit_file)
-
     subprocess.call(['bash', '_setup.sh'])
 
     subprocess.call(['git', 'submodule', 'update', '--init'])
