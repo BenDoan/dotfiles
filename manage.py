@@ -31,7 +31,7 @@ def install(args):
     vimundo_dir = path.expanduser("~/dotfiles/vimundo")
     if not path.exists(vimundo_dir):
         if path.exists(path.expanduser("~/dotfiles")):
-            os.mkdir(vimundo)
+            os.mkdir(vimundo_dir)
         else:
             print("Error: can't create vimundo folder")
 
@@ -42,7 +42,7 @@ def install(args):
 
     subprocess.call(['bash', '_setup.sh'])
 
-    subprocess.call(['git', 'submodule', 'update'])
+    subprocess.call(['git', 'submodule', 'update', '--init'])
 
 def uninstall(args):
     print("Unlinking dotfiles...")

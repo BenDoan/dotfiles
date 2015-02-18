@@ -331,3 +331,5 @@ map <c-f> :call DmenuOpen("e")<cr>
 let g:notes_directories = ['~/notes']
 
 let g:user_emmet_leader_key='<C-e>'
+
+let g:airline#extensions#tabline#enabled = 1
