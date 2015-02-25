@@ -1,3 +1,5 @@
+syntax on
+
 " Note: Skip initialization for vim-tiny or vim-small.
 if !1 | finish | endif
 
@@ -54,7 +56,6 @@ behave xterm
 
 filetype plugin on
 filetype plugin indent on
-syntax on
 
 set hidden   "Doesn't close buffers
 set history=1000  " remember more commands and search history
@@ -106,6 +107,7 @@ augroup autocmds
     au BufWritePre * silent g/\s\+$/s/// " Remove trailing spaces after save
 
     au VimEnter * ColorHighlight
+    au VimEnter * syntax on
 
     au WinEnter * setlocal cursorline "only emabled the cursorline in the active window
     au WinLeave * setlocal nocursorline
