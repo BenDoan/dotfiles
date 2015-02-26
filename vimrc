@@ -42,6 +42,7 @@ NeoBundle 'bruno-/vim-husk'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'chrisbra/NrrwRgn'
 
 call neobundle#end()
 
