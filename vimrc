@@ -1,5 +1,6 @@
 syntax on
-
+" NeoBundle Initialization
+"
 " Note: Skip initialization for vim-tiny or vim-small.
 if !1 | finish | endif
 
@@ -22,27 +23,29 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
-NeoBundle 'sjl/badwolf'
+
 NeoBundle 'bkad/CamelCaseMotion'
-NeoBundle 'chrisbra/Colorizer'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'lepture/vim-jinja'
-NeoBundle 'JuliaLang/julia-vim'
-NeoBundle 'zah/nimrod.vim'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'bruno-/vim-husk'
+NeoBundle 'chrisbra/NrrwRgn'
+NeoBundle 'derekwyatt/vim-fswitch'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'HorseMD/tf2syntax.vim'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'derekwyatt/vim-fswitch'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-eunuch'
-NeoBundle 'tpope/vim-speeddating'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'bruno-/vim-husk'
+NeoBundle 'JuliaLang/julia-vim'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'lepture/vim-jinja'
+NeoBundle 'lilydjwg/colorizer'
 NeoBundle 'mattn/emmet-vim'
+NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'chrisbra/NrrwRgn'
+NeoBundle 'sjl/badwolf'
+NeoBundle 'tacahiroy/ctrlp-funky'
+NeoBundle 'tpope/vim-eunuch'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-speeddating'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'zah/nimrod.vim'
 
 call neobundle#end()
 
@@ -108,7 +111,6 @@ augroup autocmds
     au BufWritePre * silent g/\s\+$/s/// " Remove trailing spaces after save
 
     au VimEnter * ColorHighlight
-    au VimEnter * syntax on
 
     au WinEnter * setlocal cursorline "only emabled the cursorline in the active window
     au WinLeave * setlocal nocursorline
@@ -119,16 +121,6 @@ augroup autocmds
     "Filetypes
     au BufNewFile,BufRead *.less set filetype=less
     au BufNewFile,BufRead *.sc set filetype=scala
-
-
-    "make stuff
-    au BufNewFile,BufRead *.php set makeprg=php\ -l\ %
-    au BufNewFile,BufRead *.php set errorformat=%m\ in\ %f\ on\ line\ %l
-
-    au BufNewFile,BufRead *.py set makeprg=python\ %
-
-    au BufNewFile,BufRead *.go set makeprg=go\ build\ %
-    au BufWritePost *.tex silent !texi2pdf %
 augroup END
 
 "Search stuff
@@ -176,12 +168,6 @@ set wildignore+=*.pyc                            " Python byte code
 set wildignore+=*.orig                           " Merge resolution files
 
 
-"php stuff
-let php_sql_query=1
-let php_htmlInStrings=1
-
-
-syntax enable
 set background=dark
 let g:badwolf_html_link_underline = 0
 
@@ -223,14 +209,14 @@ nnoremap gp `[v`]
 " Column scroll-binding on <leader>sb
 noremap <silent> <leader>sb :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
 
+" copies until end of line
 nmap Y y$
-nmap <Leader>v :e $MYVIMRC
-nmap <Leader>V :w<CR>:source $MYVIMRC
 
 " Center the line that the search result is on
 map N Nzz
 map n nzz
 
+" disables help key
 map! <F1> <Esc>
 
 "keeps the visual selection when you tab a piece of text over
@@ -255,45 +241,27 @@ cmap X<CR> x<CR>
 " Ack for the last search.
 nnoremap <silent> <leader>/ :execute "Ack! '" . substitute(substitute(substitute(@/, "\\\\<", "\\\\b", ""), "\\\\>", "\\\\b", ""), "\\\\v", "", "") . "'"<CR>
 
-"maps for php ctags
-if executable('ctags')
-    nmap <silent> <F4>
-        \ :!ctags -f ./tags
-        \ --langmap="php:+.inc"
-        \ -h ".php.inc" -R --totals=yes
-        \ --tag-relative=yes --PHP-kinds=+cf-v .<CR>
+" use ctrl-f to open file in current buffer
+function! DmenuOpen(cmd)
+  let fname = Chomp(system("git ls-files | dmenu -i -l 20 -nb '#02151A' -sb '#087891' -p " . a:cmd))
+  if empty(fname)
+    return
+  endif
+  execute a:cmd . " " . fname
+endfunction
 
-    set tags=./tags,tags
-endif
+map <c-f> :call DmenuOpen("e")<cr>
 
 nnoremap ,cd :cd %:p:h<CR>
-
-fun! JumpToDef()
-  if exists("*GotoDefinition_" . &filetype)
-    call GotoDefinition_{&filetype}()
-  else
-    exe "norm! \<C-]>"
-  endif
-endf
-
-" Jump to tag
-nn <M-g> :call JumpToDef()<cr>
-ino <M-g> <esc>:call JumpToDef()<cr>i
 
 
 "PLUGINS
 """""""""""""""
-"Zen Coding
-let g:user_zen_expandabbr_key = '<c-e>'
-
 "Supertab
 let g:SuperTabDefaultCompletionType = "context"
 
 "Nerd Commenter
 map <C-c> <plug>NERDCommenterToggle
-
-"Nerd Tree
-nmap <F8> :NERDTreeToggle <CR>
 
 "CamelCaseMotion
 map <silent> w <Plug>CamelCaseMotion_w
@@ -311,29 +279,9 @@ let g:ctrlp_extensions = ['funky']
 
 "Fswitch
 nmap <silent> <leader>of :FSHere<cr>
-
-"Pytest
-map <silent> <leader>tt :Pytest file<cr>
-
-"vim-slime
-let g:slime_target = "tmux"
-function! Chomp(str)
-  return substitute(a:str, '\n$', '', '')
-endfunction
-
-function! DmenuOpen(cmd)
-  let fname = Chomp(system("git ls-files | dmenu -i -l 20 -nb '#02151A' -sb '#087891' -p " . a:cmd))
-  if empty(fname)
-    return
-  endif
-  execute a:cmd . " " . fname
-endfunction
-
-" use ctrl-f to open file in current buffer
-map <c-f> :call DmenuOpen("e")<cr>
-
-let g:notes_directories = ['~/notes']
-
+"
+"Emmet
 let g:user_emmet_leader_key='<C-e>'
 
+"Airline
 let g:airline#extensions#tabline#enabled = 1
