@@ -69,12 +69,12 @@ set backspace=indent,eol,start "fixes backspacing in normal mode
 set guioptions-=T  "remove menu bar
 set modeline
 
-set modeline
+set modeline "reads modelines, eg: '# vim: set ai tw=75'
 
 set noeb vb t_vb= "Stops screen flashing
 au GUIEnter * set vb t_vb=
 
-set nofoldenable "disables folding
+set nofoldenable "disables code folding
 
 set autoread "automatically reads a file once it has been changed
 set autowrite "saves the current file on certain actions
@@ -89,7 +89,7 @@ set gdefault "search/replace is globally done on a line by default
 set number "static line numbers
 set clipboard=unnamed
 set linebreak "wraps text, no eols
-set scrolloff=2   "scrollspace above cursor
+set scrolloff=2 "minscrollspace above/below cursor
 set cmdheight=1 "sets command window at bottom
 set showmatch "Jumps to matching paren
 set mat=5 "how long to show matching parens
@@ -176,7 +176,6 @@ if has("win32")
 elseif has("gui")
     set guiheadroom=0
     set guifont=Source\ Code\ Pro\ 10
-else
 endif
 set t_Co=256
 colors badwolf
