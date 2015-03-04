@@ -6,3 +6,5 @@ vim/bundle/*
 
 vimundo/*
 !vimundo/.gitignore
+
+src/manage

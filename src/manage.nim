@@ -36,7 +36,7 @@ proc uninstall() =
 
 proc status() =
     echo "Stats:"
-    echo format("Managing $# dotfiles", len(dotfiles))
+    echo format("Managing $# dotfiles", dotfiles.len())
     echo format("OS is $# $#", hostOS, hostCPU)
 
     echo ""
@@ -65,6 +65,7 @@ proc main() =
             status()
         else:
             discard
+        break
 
 when isMainModule:
     main()
