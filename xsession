@@ -1,16 +1,16 @@
-#applets
+#notification bar
 volumeicon &
+wicd-client --tray &
+clipit -d &
 
 #daemons
 dunst &
-eval `gnome-keyring-daemon`
 udisks-glue -c ~/dotfiles/udisks-glue.conf &
 bash /home/ben/scripts/external_monitor.sh &
-wicd-client --tray &
 
 #settings
 xsetroot -solid '#335234' &
-amixer set 'Master' 20 &
+amixer set 'Master' 30 &
 xset -b &
 xset dpms &
 xset s 100000 100000 &
@@ -20,6 +20,6 @@ sh /home/ben/scripts/startup.sh &
 DEFAULT_SESSION=i3
 compton -b
 
-sleep 2s &
+sleep 1
 
 exec i3
