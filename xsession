@@ -18,7 +18,7 @@ setxkbmap -option ctrl:nocaps &
 
 sh /home/ben/scripts/startup.sh &
 DEFAULT_SESSION=i3
-compton -b
+compton -b --backend glx --vsync opengl
 
 sleep 1
 
