@@ -1,7 +1,7 @@
 #!/bin/bash
 
 rmdir ~/Desktop ~/Downloads ~/Music ~/Public ~/Videos ~/Pictures ~/Templates >& /dev/null
-mkdir ~/downloads ~/documents ~/music ~/pictures ~/bin >& /dev/null
+mkdir ~/downloads ~/documents ~/music ~/pictures ~/shots ~/bin >& /dev/null
 
 ln -s $HOME/.xsession $HOME/.xinitrc >& /dev/null
 

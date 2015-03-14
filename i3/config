@@ -9,6 +9,8 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec roxterm
 
+bindsym $mod+i exec screen scrot -e 'mv $f ~/shots' && sleep 1 && notify-send 'taken'
+
 # kill focused window
 bindsym $mod+Shift+Q kill
 
