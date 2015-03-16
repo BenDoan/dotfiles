@@ -1,59 +1,28 @@
-syntax on
-" NeoBundle Initialization
-"
-" Note: Skip initialization for vim-tiny or vim-small.
-if !1 | finish | endif
+call plug#begin('~/.vim/plugged')
 
-if has('vim_starting')
-    if &compatible
-        set nocompatible               " Be iMproved
-    endif
+Plug 'bkad/CamelCaseMotion'
+Plug 'bling/vim-airline'
+Plug 'bruno-/vim-husk'
+Plug 'chrisbra/NrrwRgn'
+Plug 'derekwyatt/vim-fswitch'
+Plug 'ervandew/supertab'
+Plug 'HorseMD/tf2syntax.vim'
+Plug 'JuliaLang/julia-vim'
+Plug 'kien/ctrlp.vim'
+Plug 'lepture/vim-jinja'
+Plug 'lilydjwg/colorizer'
+Plug 'mattn/emmet-vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'sjl/badwolf'
+Plug 'tacahiroy/ctrlp-funky'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-surround'
+Plug 'zah/nimrod.vim'
 
-    " Required:
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" My Bundles here:
-" Refer to |:NeoBundle-examples|.
-" Note: You don't set neobundle setting in .gvimrc!
-
-NeoBundle 'bkad/CamelCaseMotion'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'bruno-/vim-husk'
-NeoBundle 'chrisbra/NrrwRgn'
-NeoBundle 'derekwyatt/vim-fswitch'
-NeoBundle 'ervandew/supertab'
-NeoBundle 'HorseMD/tf2syntax.vim'
-NeoBundle 'JuliaLang/julia-vim'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'lepture/vim-jinja'
-NeoBundle 'lilydjwg/colorizer'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'sjl/badwolf'
-NeoBundle 'tacahiroy/ctrlp-funky'
-NeoBundle 'tpope/vim-eunuch'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-speeddating'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'zah/nimrod.vim'
-
-call neobundle#end()
-
-" Required:
-filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
+call plug#end()
 
 behave xterm
 
