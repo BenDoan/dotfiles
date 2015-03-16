@@ -256,6 +256,6 @@ let g:airline#extensions#tabline#enabled = 1
 
 " Vim-easy-align
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-vmap <Enter> <Plug>(EasyAlign)
+vmap <Enter> <Plug>(LiveEasyAlign)
 " " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
