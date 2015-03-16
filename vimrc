@@ -21,6 +21,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'zah/nimrod.vim'
+Plug 'junegunn/vim-easy-align'
 
 call plug#end()
 
@@ -252,3 +253,9 @@ let g:user_emmet_leader_key='<C-e>'
 
 "Airline
 let g:airline#extensions#tabline#enabled = 1
+
+" Vim-easy-align
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+" " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
