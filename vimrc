@@ -8,6 +8,10 @@ Plug 'derekwyatt/vim-fswitch'
 Plug 'ervandew/supertab'
 Plug 'HorseMD/tf2syntax.vim'
 Plug 'JuliaLang/julia-vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/vim-oblique'
+Plug 'junegunn/vim-pseudocl'
 Plug 'kien/ctrlp.vim'
 Plug 'lepture/vim-jinja'
 Plug 'lilydjwg/colorizer'
@@ -21,7 +25,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'zah/nimrod.vim'
-Plug 'junegunn/vim-easy-align'
 
 call plug#end()
 
