@@ -5,7 +5,4 @@ vim/bundle/*
 !vim/bundle/neobundle.vim
 vim/plugged
 
-vimundo/*
-!vimundo/.gitignore
-
 src/manage
