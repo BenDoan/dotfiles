@@ -3,28 +3,28 @@ call plug#begin('~/.vim/plugged')
 Plug 'bkad/CamelCaseMotion'
 Plug 'bling/vim-airline'
 Plug 'bruno-/vim-husk'
-Plug 'chrisbra/NrrwRgn'
-Plug 'derekwyatt/vim-fswitch'
-Plug 'ervandew/supertab'
-Plug 'HorseMD/tf2syntax.vim'
+Plug 'derekwyatt/vim-fswitch', {'for': ['c', 'cpp']}
+Plug 'HorseMD/tf2syntax.vim', {'for': 'tf2'}
 Plug 'JuliaLang/julia-vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'}
+Plug 'junegunn/vim-easy-align', {'on': ['<Plug>(EasyAlign)', 'EasyAlign']}
 Plug 'junegunn/vim-oblique'
+Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-pseudocl'
-Plug 'kien/ctrlp.vim'
-Plug 'lepture/vim-jinja'
+Plug 'lepture/vim-jinja', {'for': 'jinja'}
 Plug 'lilydjwg/colorizer'
-Plug 'mattn/emmet-vim'
-Plug 'scrooloose/nerdcommenter'
+Plug 'mattn/emmet-vim', {'for': ['html', 'jinja', 'php']}
+"Plug 'scrooloose/nerdcommenter', {'on': '<Plug>NERDCommenterToggle'}
+Plug 'tpope/vim-commentary', {'on': '<Plug>Commentary'}
 Plug 'sjl/badwolf'
-Plug 'tacahiroy/ctrlp-funky'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
-Plug 'zah/nimrod.vim'
+Plug 'zah/nimrod.vim', {'for': 'nim'}
+Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
+Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'fatih/vim-go'
 
 call plug#end()
 
@@ -93,6 +93,8 @@ augroup autocmds
     "Filetypes
     au BufNewFile,BufRead *.less set filetype=less
     au BufNewFile,BufRead *.sc set filetype=scala
+
+    au FileType go setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=2
 augroup END
 
 "Search stuff
@@ -209,20 +211,6 @@ nnoremap <leader>i :set list!<cr>
 " disable :X
 cmap X<CR> x<CR>
 
-" Ack for the last search.
-nnoremap <silent> <leader>/ :execute "Ack! '" . substitute(substitute(substitute(@/, "\\\\<", "\\\\b", ""), "\\\\>", "\\\\b", ""), "\\\\v", "", "") . "'"<CR>
-
-" use ctrl-f to open file in current buffer
-function! DmenuOpen(cmd)
-  let fname = Chomp(system("git ls-files | dmenu -i -l 20 -nb '#02151A' -sb '#087891' -p " . a:cmd))
-  if empty(fname)
-    return
-  endif
-  execute a:cmd . " " . fname
-endfunction
-
-map <c-f> :call DmenuOpen("e")<cr>
-
 nnoremap ,cd :cd %:p:h<CR>
 
 
@@ -231,8 +219,9 @@ nnoremap ,cd :cd %:p:h<CR>
 "Supertab
 let g:SuperTabDefaultCompletionType = "context"
 
-"Nerd Commenter
-map <C-c> <plug>NERDCommenterToggle
+"Commenter
+"map <C-c> <plug>NERDCommenterToggle
+map <C-c> <plug>Commentary
 
 "CamelCaseMotion
 map <silent> w <Plug>CamelCaseMotion_w
@@ -242,20 +231,14 @@ sunmap w
 sunmap b
 sunmap e
 
-"CtrlP
-nnoremap <space> :CtrlPMixed<CR>
-nnoremap <leader>l :CtrlPLine<CR>
-nnoremap <leader>f :CtrlPFunky<CR>
-let g:ctrlp_extensions = ['funky']
+"FZF
+nnoremap <space> :FZF<CR>
 
 "Fswitch
 nmap <silent> <leader>of :FSHere<cr>
-"
+
 "Emmet
 let g:user_emmet_leader_key='<C-e>'
-
-"Airline
-let g:airline#extensions#tabline#enabled = 1
 
 " Vim-easy-align
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)

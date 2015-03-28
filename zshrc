@@ -1,4 +1,5 @@
-export GOPATH=$HOME/code/playground/golang
+export GOPATH=$HOME/code/active/playground/golang
+export PATH=$PATH:$GOPATH/bin
 export DISTRO=$(<~/.distro)
 
 # completion
