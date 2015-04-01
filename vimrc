@@ -4,7 +4,7 @@ Plug 'bkad/CamelCaseMotion'
 Plug 'bling/vim-airline'
 Plug 'bruno-/vim-husk'
 Plug 'derekwyatt/vim-fswitch', {'for': ['c', 'cpp']}
-Plug 'HorseMD/tf2syntax.vim', {'for': 'tf2'}
+Plug 'BenDoan/tf2syntax.vim', {'for': 'tf2'}
 Plug 'JuliaLang/julia-vim'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'}
 Plug 'junegunn/vim-easy-align', {'on': ['<Plug>(EasyAlign)', 'EasyAlign']}
