@@ -20,6 +20,7 @@ Plug 'sjl/badwolf'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-surround'
 Plug 'zah/nimrod.vim', {'for': 'nim'}
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
@@ -95,6 +96,8 @@ augroup autocmds
     au BufNewFile,BufRead *.sc set filetype=scala
 
     au FileType go setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=2
+
+    au BufEnter * let &titlestring = "vim - " . expand("%:p")
 augroup END
 
 "Search stuff
@@ -155,6 +158,15 @@ set t_Co=256
 colors badwolf
 
 set listchars=eol:¬
+
+let &titlestring = hostname() . "[vim(" . expand("%:t") . ")]"
+if &term == "screen"
+  set t_ts=^[k
+  set t_fs=^[\
+endif
+if &term == "screen" || &term == "xterm"
+  set title
+endif
 
 "KEY MAPS
 """"""""

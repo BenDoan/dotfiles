@@ -7,6 +7,7 @@ clipit -d &
 dunst &
 udisks-glue -c ~/dotfiles/udisks-glue.conf &
 bash /home/ben/scripts/external_monitor.sh &
+~/bin/govis >> ~/.govislog
 
 #settings
 xsetroot -solid '#335234' &
