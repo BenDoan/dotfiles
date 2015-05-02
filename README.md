@@ -1,4 +1,4 @@
-My personal dotfiles
+## My personal dotfiles
 Clone and use "./manage.py install" to link the files and "./manage.py uninstall" to unlink.
 
 LICENSE

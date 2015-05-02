@@ -7,7 +7,7 @@ import subprocess
 
 from os import path
 
-dotfiles = ["vim", "i3", "fonts", "vimrc", "xsession", "zshrc", "conkyrc", "tmux.conf", "i3status.conf", "profile", "gitignore_global", "gitconfig", "compton.conf"]
+dotfiles = ("vim", "i3", "fonts", "vimrc", "xsession", "zshrc", "conkyrc", "tmux.conf", "i3status.conf", "profile", "gitignore_global", "gitconfig", "compton.conf")
 
 red = '\033[91m'
 green = '\033[92m'
@@ -27,8 +27,8 @@ def install(args):
             os.symlink(source, dest)
             print("Linking {}".format(dotfile))
 
+    # additional setup
     subprocess.call(['bash', '_setup.sh'])
-
     subprocess.call(['git', 'submodule', 'update', '--init'])
 
 def uninstall(args):
