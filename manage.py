@@ -34,7 +34,7 @@ def install(args):
 def uninstall(args):
     print("Unlinking dotfiles...")
 
-    # link dotfiles
+    # unlink dotfiles
     for dotfile in dotfiles:
         dest = path.expanduser("~/.{}".format(dotfile))
         if path.islink(dest):
