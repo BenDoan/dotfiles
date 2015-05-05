@@ -1,17 +1,17 @@
-#notification bar
-volumeicon &
-wicd-client --tray &
-clipit -d &
-
 #daemons
 dunst &
 udisks-glue -c ~/dotfiles/udisks-glue.conf &
 bash /home/ben/scripts/external_monitor.sh &
 ~/bin/govis >> ~/.govislog &
+NetworkManager &
+
+#notification bar
+volumeicon &
+clipit -d &
+nm-applet &
 
 #settings
 xsetroot -solid '#335234' &
-amixer set 'Master' 30 &
 xset -b &
 xset dpms &
 xset s 100000 100000 &

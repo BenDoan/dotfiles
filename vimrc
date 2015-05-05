@@ -1,31 +1,28 @@
 call plug#begin('~/.vim/plugged')
 
+Plug 'BenDoan/tf2syntax.vim', {'for': 'tf2'}
 Plug 'bkad/CamelCaseMotion'
 Plug 'bling/vim-airline'
 Plug 'bruno-/vim-husk'
+Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'derekwyatt/vim-fswitch', {'for': ['c', 'cpp']}
-Plug 'BenDoan/tf2syntax.vim', {'for': 'tf2'}
+Plug 'fatih/vim-go'
 Plug 'JuliaLang/julia-vim'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'}
 Plug 'junegunn/vim-easy-align', {'on': ['<Plug>(EasyAlign)', 'EasyAlign']}
 Plug 'junegunn/vim-oblique'
-Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-pseudocl'
 Plug 'lepture/vim-jinja', {'for': 'jinja'}
 Plug 'lilydjwg/colorizer'
 Plug 'mattn/emmet-vim', {'for': ['html', 'jinja', 'php']}
-"Plug 'scrooloose/nerdcommenter', {'on': '<Plug>NERDCommenterToggle'}
-Plug 'tpope/vim-commentary', {'on': '<Plug>Commentary'}
+Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
+Plug 'scrooloose/nerdcommenter'
 Plug 'sjl/badwolf'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
-Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-surround'
 Plug 'zah/nimrod.vim', {'for': 'nim'}
-Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
-Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'fatih/vim-go'
 
 call plug#end()
 
@@ -232,8 +229,7 @@ nnoremap ,cd :cd %:p:h<CR>
 let g:SuperTabDefaultCompletionType = "context"
 
 "Commenter
-"map <C-c> <plug>NERDCommenterToggle
-map <C-c> <plug>Commentary
+map <C-c> <plug>NERDCommenterToggle
 
 "CamelCaseMotion
 map <silent> w <Plug>CamelCaseMotion_w
