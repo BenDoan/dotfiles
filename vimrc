@@ -9,7 +9,7 @@ Plug 'derekwyatt/vim-fswitch', {'for': ['c', 'cpp']}
 Plug 'fatih/vim-go'
 Plug 'JuliaLang/julia-vim'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'}
-Plug 'junegunn/vim-easy-align', {'on': ['<Plug>(EasyAlign)', 'EasyAlign']}
+Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-oblique'
 Plug 'junegunn/vim-pseudocl'
 Plug 'lepture/vim-jinja', {'for': 'jinja'}
@@ -251,5 +251,7 @@ let g:user_emmet_leader_key='<C-e>'
 " Vim-easy-align
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(LiveEasyAlign)
-" " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+nnoremap <BS> :GoTest<CR>
