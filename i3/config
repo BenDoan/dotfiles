@@ -14,7 +14,7 @@ bindsym $mod+i exec screen scrot -e 'mv $f ~/shots' && sleep 1 && notify-send 't
 # kill focused window
 bindsym $mod+Shift+Q kill
 
-bindsym $mod+d exec rofi -rnow
+bindsym $mod+d exec rofi -show run
 
 # change focus
 bindsym $mod+h focus left
