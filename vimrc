@@ -4,6 +4,7 @@ Plug 'BenDoan/tf2syntax.vim', {'for': 'tf2'}
 Plug 'bkad/CamelCaseMotion'
 Plug 'bling/vim-airline'
 Plug 'bruno-/vim-husk'
+Plug 'cespare/vim-toml'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'derekwyatt/vim-fswitch', {'for': ['c', 'cpp']}
 Plug 'fatih/vim-go'
