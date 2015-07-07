@@ -71,7 +71,6 @@ for c in tar mv cp rm chmod chown rename link rmdir; do
     alias $c="$c -v"
 done
 
-source $HOME/dotfiles/liquidprompt/liquidprompt
 source $HOME/.profile
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib
 
