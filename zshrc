@@ -15,6 +15,9 @@ unset CASE_SENSITIVE
 autoload -U compinit
 compinit -C
 
+export PROMPT='%B%(?..[%?] )%b> '
+export RPROMPT="%F{${1:-green}}%~%f"
+
 bindkey -e
 
 ## case-insensitive (all),partial-word and then substring completion
