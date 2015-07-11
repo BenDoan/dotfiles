@@ -61,7 +61,7 @@ say() { if [[ "${1}" =~ -[a-z]{2} ]]; then local lang=${1#-}; local text="${*#$1
 #arch
 alias y="yaourt"
 alias update="yaourt -Syua"
-#list_packages(){"expac -HM "%011m\t%-20n\t%10d" $( comm -23 <(pacman -Qqen|sort) <(pacman -Qqg base base-devel|sort) ) | sort -n";}
+list_packages(){expac -s "%-30n %m" | sort -hk 2 | awk '{printf "%s %.0f MiB\n", $1, $2/1024/1024}' | column -t }
 
 # git aliases
 alias gpm="git push origin master"
