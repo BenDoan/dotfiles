@@ -80,4 +80,4 @@ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib
 [ -d ~/bin/z ] && source $HOME/bin/z/z.sh > /dev/null
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source ~/.zshrc.local >& /dev/null
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
