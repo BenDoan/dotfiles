@@ -18,6 +18,10 @@ compinit -C
 export PROMPT='%B%(?..[%?] )%b> '
 export RPROMPT="%F{${1:-green}}%~%f"
 
+
+autoload predict-on
+autoload predict-off
+
 bindkey -e
 
 ## case-insensitive (all),partial-word and then substring completion
