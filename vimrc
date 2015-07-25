@@ -19,6 +19,7 @@ Plug 'mattn/emmet-vim', {'for': ['html', 'jinja', 'php']}
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'sjl/badwolf'
+Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
