@@ -15,8 +15,12 @@ unset CASE_SENSITIVE
 autoload -U compinit
 compinit -C
 
-export PROMPT='%B%(?..[%?] )%b> '
+export PROMPT='%B%(?..[%?] )%b→ '
 export RPROMPT="%F{${1:-green}}%~%f"
+
+if [ -n "$SSH_CLIENT" ]; then
+    export PROMPT="<%M> $PROMPT"
+fi
 
 
 autoload predict-on
