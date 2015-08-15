@@ -19,7 +19,7 @@ export PROMPT='%B%(?..[%?] )%b→ '
 export RPROMPT="%F{${1:-green}}%~%f"
 
 if [ -n "$SSH_CLIENT" ]; then
-    export PROMPT="<%M> $PROMPT"
+    export PROMPT="%F{${1:-yellow}}<%M>%f $PROMPT"
 fi
 
 
