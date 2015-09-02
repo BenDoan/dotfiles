@@ -11,6 +11,9 @@ bindsym $mod+Return exec roxterm
 
 bindsym $mod+i exec screen scrot -e 'mv $f ~/shots' && sleep 1 && notify-send 'taken'
 
+bindcode 233 exec xbacklight +5
+bindcode 232 exec xbacklight -5
+
 # kill focused window
 bindsym $mod+Shift+Q kill
 

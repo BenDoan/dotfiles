@@ -24,6 +24,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
+Plug 'elixir-lang/vim-elixir'
 Plug 'zah/nimrod.vim', {'for': 'nim'}
 
 call plug#end()
