@@ -91,10 +91,7 @@ augroup autocmds
     au FocusLost * silent! :wa "saves all files when vim loses focus
     au WinLeave * silent! :wa
 
-    "Filetypes
-    au BufNewFile,BufRead *.less set filetype=less
-    au BufNewFile,BufRead *.sc set filetype=scala
-
+    "Filetype settings
     au FileType go setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=2
 
     au BufEnter * let &titlestring = "vim - " . expand("%:p")
@@ -130,19 +127,19 @@ endif
 set wildmenu
 set wildmode=full
 
-set wildignore+=.hg,.git,.svn                    " Version control
-set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
-set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
-set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
-set wildignore+=*.spl                            " compiled spelling word lists
-set wildignore+=*.sw?                            " Vim swap files
-set wildignore+=*.DS_Store                       " OSX bullshit
+set wildignore+=.hg,.git,.svn
+set wildignore+=*.aux,*.out,*.toc
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest
+set wildignore+=*.spl
+set wildignore+=*.sw?
+set wildignore+=*.DS_Store
 
-set wildignore+=*.luac                           " Lua byte code
+set wildignore+=*.luac
 
-set wildignore+=*.pyc                            " Python byte code
+set wildignore+=*.pyc
 
-set wildignore+=*.orig                           " Merge resolution files
+set wildignore+=*.orig
 
 
 set background=dark
