@@ -8,6 +8,7 @@
 	p = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit -p
 	l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 	g = grep --break --heading --line-number
+	o = log --oneline --stat
     su = submodule update --init --recursive
 [color]
 	ui = auto
