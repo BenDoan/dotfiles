@@ -15,8 +15,10 @@ Plug 'junegunn/vim-oblique'
 Plug 'junegunn/vim-pseudocl'
 Plug 'lepture/vim-jinja', {'for': 'jinja'}
 Plug 'lilydjwg/colorizer'
+Plug 'elixir-lang/vim-elixir'
 Plug 'mattn/emmet-vim', {'for': ['html', 'jinja', 'php']}
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
+Plug 'osyo-manga/vim-over'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sjl/badwolf'
 Plug 'tomtom/tcomment_vim'
@@ -24,7 +26,6 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
-Plug 'elixir-lang/vim-elixir'
 Plug 'zah/nimrod.vim', {'for': 'nim'}
 
 call plug#end()
