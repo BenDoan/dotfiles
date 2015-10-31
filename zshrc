@@ -9,6 +9,7 @@ setopt auto_cd
 setopt auto_menu
 setopt auto_remove_slash
 setopt complete_in_word
+setopt histignorespace
 
 unset CASE_SENSITIVE
 
@@ -70,6 +71,8 @@ say() { if [[ "${1}" =~ -[a-z]{2} ]]; then local lang=${1#-}; local text="${*#$1
 alias y="yaourt"
 alias update="yaourt -Syua"
 list_packages(){expac -s "%-30n %m" | sort -hk 2 | awk '{printf "%s %.0f MiB\n", $1, $2/1024/1024}' | column -t }
+
+alias resetres="xrandr --output eDP1 --mode 1920x1080"
 
 # git aliases
 alias gpm="git push origin master"
