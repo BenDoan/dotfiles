@@ -21,6 +21,7 @@ Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
 Plug 'osyo-manga/vim-over'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sjl/badwolf'
+Plug 'tfnico/vim-gradle'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
