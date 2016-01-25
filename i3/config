@@ -7,12 +7,12 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec roxterm
+bindsym $mod+Return exec termite
 
 bindsym $mod+i exec screen scrot -e 'mv $f ~/shots/$f' && sleep 1 && notify-send 'taken'
 
-bindcode 233 exec xbacklight +5 && notify-send "Brightness up"
-bindcode 232 exec xbacklight -5 && notify-send "Brightness down"
+bindcode 233 exec xbacklight +10 && notify-send "Brightness up"
+bindcode 232 exec xbacklight -10 && notify-send "Brightness down"
 
 # kill focused window
 bindsym $mod+Shift+Q kill
@@ -129,8 +129,12 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        position top
-        status_command ~/.i3/conky
+    position top
+    status_command ~/.i3/conky
+    colors {
+        #background #630404
+        background #000
+    }
 }
 
 focus_follows_mouse yes
