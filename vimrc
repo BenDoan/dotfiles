@@ -51,7 +51,6 @@ au GUIEnter * set vb t_vb=
 
 set nofoldenable "disables code folding
 
-set autoread "automatically reads a file once it has been changed
 set autowrite "saves the current file on certain actions
 set mouse=a "enables mouse for all modes
 set ttymouse=xterm2
@@ -223,6 +222,8 @@ nnoremap <leader>i :set list!<cr>
 cmap X<CR> x<CR>
 
 nnoremap ,cd :cd %:p:h<CR>
+
+command Ipythone :normal oimport IPython; IPython.embed()<ESC>
 
 
 "PLUGINS
