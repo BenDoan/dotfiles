@@ -51,7 +51,6 @@ export XDG_CURRENT_DESKTOP=GNOME
 setopt NO_BEEP
 setopt NO_CASE_GLOB
 
-
 # general aliases
 alias ls='ls -hF --color=auto --group-directories-first'
 alias ll='ls -l'
@@ -60,21 +59,24 @@ alias tmux="tmux -2"
 alias e=$EDITOR
 alias o="xdg-open"
 
-# bash one liners
-alias cpv="rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --"
 alias home_screens="xrandr --output eDP1 --mode 1920x1080 && xrandr --output VGA1 --mode 1440x900 --right-of eDP1"
 
 st(){sudo strace -e open $(ps -o lwp= -LC $1 | sed 's/^/-p/')}
-say() { if [[ "${1}" =~ -[a-z]{2} ]]; then local lang=${1#-}; local text="${*#$1}"; else local lang=${LANG%_*}; local text="$*";fi; mplayer "http://translate.google.com/translate_tts?ie=UTF-8&tl=${lang}&q=${text}" &> /dev/null ; }
 
-#arch
-alias y="yaourt"
-alias update="yaourt -Syua"
 list_packages(){expac -s "%-30n %m" | sort -hk 2 | awk '{printf "%s %.0f MiB\n", $1, $2/1024/1024}' | column -t }
+
+# Turn virtualenvs on/off
+function von(){
+    dirname=$(basename $(pwd))
+    if [[ -n $dirname && -d $HOME/envs/$dirname ]]; then
+        echo "Sourcing $dirname env"
+        source $HOME/envs/$dirname/bin/activate
+    fi
+}
+function voff(){deactivate}
 
 alias resetres="xrandr --output eDP1 --mode 1920x1080"
 
-# git aliases
 alias gpm="git push origin master"
 
 alias -g ...='../../' #cd ...
@@ -84,6 +86,8 @@ alias -g .....='../../../../' #cd .....
 for c in tar mv cp rm chmod chown rename link rmdir; do
     alias $c="$c -v"
 done
+
+eval $(dircolors ~/.dircolors)
 
 source $HOME/.profile
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib
