@@ -1,4 +1,4 @@
-programs="python base-devel conky roxterm htop ntp emacs libreoffice rsync virtualbox virtualbox-host-modules zenity zsh gvim meld firefox chromium python2 python2-pip vlc curl tmux dmenu i3 acpi ImageMagick mosh git"
+programs="python base-devel conky roxterm htop ntp emacs libreoffice rsync virtualbox virtualbox-host-modules zenity zsh gvim meld firefox chromium python2 python2-pip vlc curl tmux dmenu i3 acpi ImageMagick mosh git at"
 aur_programs="rofi" #not used currently
 
 ~/dotfiles/manage.sh install

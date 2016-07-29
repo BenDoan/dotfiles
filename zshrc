@@ -65,11 +65,12 @@ st(){sudo strace -e open $(ps -o lwp= -LC $1 | sed 's/^/-p/')}
 
 list_packages(){expac -s "%-30n %m" | sort -hk 2 | awk '{printf "%s %.0f MiB\n", $1, $2/1024/1024}' | column -t }
 
+get_random_file(){find . -type f | shuf -n 1}
+
 # Turn virtualenvs on/off
 function von(){
     dirname=$(basename $(pwd))
     if [[ -n $dirname && -d $HOME/envs/$dirname ]]; then
-        echo "Sourcing $dirname env"
         source $HOME/envs/$dirname/bin/activate
     fi
 }
