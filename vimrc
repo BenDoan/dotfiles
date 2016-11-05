@@ -12,6 +12,7 @@ Plug 'fatih/vim-go'
 Plug 'freeo/vim-kalisi'
 Plug 'JuliaLang/julia-vim'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'}
+Plug 'posva/vim-vue'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-oblique'
 Plug 'junegunn/vim-pseudocl'
@@ -20,6 +21,8 @@ Plug 'lilydjwg/colorizer'
 Plug 'mattn/emmet-vim', {'for': ['html', 'jinja', 'php']}
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
 Plug 'osyo-manga/vim-over'
+Plug 'racer-rust/vim-racer'
+Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sirtaj/vim-openscad'
 Plug 'sjl/badwolf'
@@ -233,7 +236,7 @@ command Ipythone :normal oimport IPython; IPython.embed()<ESC>
 let g:SuperTabDefaultCompletionType = "context"
 
 "Commenter
-map <C-c> <plug>NERDCommenterToggle
+map <C-i> <plug>NERDCommenterToggle
 
 "CamelCaseMotion
 map <silent> w <Plug>CamelCaseMotion_w
@@ -244,7 +247,7 @@ sunmap b
 sunmap e
 
 "FZF
-nnoremap <space> :FZF<CR>
+nnoremap <space> :call fzf#run({'source': 'git ls-files', 'sink': 'e'})<CR>
 
 "Fswitch
 nmap <silent> <leader>of :FSHere<cr>
