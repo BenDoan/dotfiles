@@ -25,6 +25,7 @@ Plug 'racer-rust/vim-racer'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sirtaj/vim-openscad'
+Plug 'SirVer/ultisnips'
 Plug 'sjl/badwolf'
 Plug 'tfnico/vim-gradle'
 Plug 'tpope/vim-eunuch'
@@ -247,7 +248,7 @@ sunmap b
 sunmap e
 
 "FZF
-nnoremap <space> :call fzf#run({'source': 'git ls-files', 'sink': 'e'})<CR>
+nnoremap <space> :FZF<CR>
 
 "Fswitch
 nmap <silent> <leader>of :FSHere<cr>
