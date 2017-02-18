@@ -7,7 +7,7 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec roxterm
+bindsym $mod+Return exec xfce4-terminal
 
 bindsym $mod+i exec screen scrot -e 'mv $f ~/shots/$f' && sleep 1 && notify-send 'taken'
 
@@ -18,6 +18,9 @@ bindcode 232 exec xbacklight -10 && notify-send "Brightness down"
 bindsym $mod+Shift+Q kill
 
 bindsym $mod+d exec rofi -show run
+
+bindsym $mod+n workspace next
+bindsym $mod+p workspace prev
 
 # change focus
 bindsym $mod+h focus left
