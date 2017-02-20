@@ -44,6 +44,7 @@ SAVEHIST=50000
 HISTFILE=~/.history
 
 export EDITOR="vim"
+export SUDO_EDITOR="$EDITOR"
 export XDG_CURRENT_DESKTOP=GNOME
 
 # 10 second wait for delete everythings
@@ -77,6 +78,7 @@ function von(){
 function voff(){deactivate}
 
 alias resetres="xrandr --output eDP1 --mode 1920x1080"
+alias clip="xclip -selection clipboard"
 
 alias gpm="git push origin master"
 
@@ -92,6 +94,8 @@ eval $(dircolors ~/.dircolors)
 
 source $HOME/.profile
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib
+export FZF_DEFAULT_COMMAND='ag -g ""'
+export SYSTEMD_EDITOR="vim"
 
 [ -d ~/bin/z ] && source $HOME/bin/z/z.sh > /dev/null
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
