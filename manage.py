@@ -21,7 +21,8 @@ dotfiles = (
             "gitignore_global",
             "gitconfig",
             "compton.conf",
-            "dircolors"
+            "dircolors",
+            "ipython",
         )
 
 red = '\033[91m'
