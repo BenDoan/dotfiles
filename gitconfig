@@ -1,7 +1,9 @@
 [user]
 	email = ben@bendoan.me
 	name = Ben Doan
+	signingkey = ben@bendoan.me
 [alias]
+	commit = commit -S
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 	s = status
 	d = diff
@@ -9,11 +11,12 @@
 	l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 	g = grep --break --heading --line-number
 	o = log --oneline --stat
-    su = submodule update --init --recursive
+	su = submodule update --init --recursive
+	staged = diff --cached
 [color]
 	ui = auto
 [core]
-	excludesfiles = /home/ben/.gitignore_global
+	excludesfile = /home/ben/.gitignore_global
 [grep]
 	lineNumber = true
 [rerere]
