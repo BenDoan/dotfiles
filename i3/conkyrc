@@ -10,7 +10,7 @@ pad_percents 3
 override_utf8_locale yes
 
 TEXT
-,[{"full_text": "  ${exec netctl-auto list | grep '*'} ","color": "\#DCD22F"},
+,[{"full_text": "  ${exec netctl-auto list | grep '*'} ","color": "\#0CDFFF"},
   {"full_text": " ♪ ${exec amixer get Master -M | grep -oE -m1 '[[:digit:]]*%'} ","color": "\#04B486"},
   {"full_text": " $acpitemp°C ","color": "\#DC322F"},
   {"full_text": " ☼  ${exec cat /sys/class/backlight/intel_backlight/brightness} ","color": "\#DCD22F"},
