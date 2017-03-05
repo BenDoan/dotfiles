@@ -12,7 +12,6 @@ Plug 'fatih/vim-go'
 Plug 'freeo/vim-kalisi'
 Plug 'JuliaLang/julia-vim'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'}
-Plug 'posva/vim-vue'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-oblique'
 Plug 'junegunn/vim-pseudocl'
@@ -21,12 +20,14 @@ Plug 'lilydjwg/colorizer'
 Plug 'mattn/emmet-vim', {'for': ['html', 'jinja', 'php']}
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
 Plug 'osyo-manga/vim-over'
+Plug 'posva/vim-vue'
 Plug 'racer-rust/vim-racer'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sirtaj/vim-openscad'
 Plug 'SirVer/ultisnips'
 Plug 'sjl/badwolf'
+Plug 'sjl/gundo.vim'
 Plug 'tfnico/vim-gradle'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
@@ -44,6 +45,7 @@ filetype plugin indent on
 set hidden   "Doesn't close buffers
 set history=1000  " remember more commands and search history
 set nobackup
+set backupcopy=yes
 set noswapfile
 set backspace=indent,eol,start "fixes backspacing in normal mode
 set guioptions-=T  "remove menu bar
@@ -99,6 +101,8 @@ augroup autocmds
 
     "Filetype settings
     au FileType go setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=2
+    au FileType vue.html.javascript.css setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+    au FileType javascript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
     au BufEnter * let &titlestring = "vim - " . expand("%:p")
 augroup END
@@ -263,3 +267,12 @@ vmap <Enter> <Plug>(LiveEasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 nnoremap <BS> :GoTest<CR>
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
