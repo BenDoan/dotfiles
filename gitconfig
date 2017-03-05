@@ -21,3 +21,5 @@
 	lineNumber = true
 [rerere]
 	enabled = 1
+[commit]
+	gpgsign = true
