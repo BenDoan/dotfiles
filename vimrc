@@ -15,6 +15,7 @@ Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'}
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-oblique'
 Plug 'junegunn/vim-pseudocl'
+Plug 'leafgarland/typescript-vim'
 Plug 'lepture/vim-jinja', {'for': 'jinja'}
 Plug 'lilydjwg/colorizer'
 Plug 'mattn/emmet-vim', {'for': ['html', 'jinja', 'php']}
@@ -23,6 +24,7 @@ Plug 'osyo-manga/vim-over'
 Plug 'posva/vim-vue'
 Plug 'racer-rust/vim-racer'
 Plug 'rust-lang/rust.vim'
+Plug 'udalov/kotlin-vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sirtaj/vim-openscad'
 Plug 'SirVer/ultisnips'
@@ -101,7 +103,7 @@ augroup autocmds
 
     "Filetype settings
     au FileType go setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=2
-    au FileType vue.html.javascript.css setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+    au FileType vue setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
     au FileType javascript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
     au BufEnter * let &titlestring = "vim - " . expand("%:p")
@@ -233,6 +235,9 @@ cmap X<CR> x<CR>
 nnoremap ,cd :cd %:p:h<CR>
 
 command Ipythone :normal oimport IPython; IPython.embed()<ESC>
+
+noremap  <C-C> <Esc>
+inoremap <C-C> <Esc>
 
 
 "PLUGINS
