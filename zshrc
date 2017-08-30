@@ -23,7 +23,6 @@ if [ -n "$SSH_CLIENT" ]; then
     export PROMPT="%F{${1:-yellow}}<%M>%f $PROMPT"
 fi
 
-
 autoload predict-on
 autoload predict-off
 
@@ -81,6 +80,10 @@ alias resetres="xrandr --output eDP1 --mode 1920x1080"
 alias clip="xclip -selection clipboard"
 
 alias gpm="git push origin master"
+
+if hash nvim 2> /dev/null; then
+    alias vim="nvim"
+fi
 
 alias -g ...='../../' #cd ...
 alias -g ....='../../../' #cd ....

@@ -27,7 +27,6 @@ Plug 'rust-lang/rust.vim'
 Plug 'udalov/kotlin-vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sirtaj/vim-openscad'
-Plug 'SirVer/ultisnips'
 Plug 'sjl/badwolf'
 Plug 'sjl/gundo.vim'
 Plug 'tfnico/vim-gradle'
@@ -62,7 +61,6 @@ set nofoldenable "disables code folding
 
 set autowrite "saves the current file on certain actions
 set mouse=a "enables mouse for all modes
-set ttymouse=xterm2
 set showcmd "shows uncompleted commands in the status bar
 set cursorline "highlights cursor line
 set ttyfast "fast terminal connection
@@ -273,12 +271,3 @@ vmap <Enter> <Plug>(LiveEasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 nnoremap <BS> :GoTest<CR>
-
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
