@@ -105,6 +105,7 @@ augroup autocmds
     au FileType go setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=2
     au FileType vue setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
     au FileType javascript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+    au FileType kotlin setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
     au BufEnter * let &titlestring = "vim - " . expand("%:p")
 augroup END
