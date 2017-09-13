@@ -7,14 +7,15 @@ Plug 'bruno-/vim-husk'
 Plug 'cespare/vim-toml'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'derekwyatt/vim-fswitch', {'for': ['c', 'cpp']}
+Plug 'derekwyatt/vim-scala', {'for': ['scala']}
 Plug 'elixir-lang/vim-elixir'
 Plug 'fatih/vim-go'
 Plug 'freeo/vim-kalisi'
 Plug 'JuliaLang/julia-vim'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'}
 Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/vim-oblique'
 Plug 'junegunn/vim-pseudocl'
+Plug 'junegunn/vim-slash'
 Plug 'leafgarland/typescript-vim'
 Plug 'lepture/vim-jinja', {'for': 'jinja'}
 Plug 'lilydjwg/colorizer'
@@ -24,16 +25,17 @@ Plug 'osyo-manga/vim-over'
 Plug 'posva/vim-vue'
 Plug 'racer-rust/vim-racer'
 Plug 'rust-lang/rust.vim'
-Plug 'udalov/kotlin-vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sirtaj/vim-openscad'
 Plug 'sjl/badwolf'
 Plug 'sjl/gundo.vim'
 Plug 'tfnico/vim-gradle'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
+Plug 'udalov/kotlin-vim'
 Plug 'zah/nimrod.vim', {'for': 'nim'}
 
 call plug#end()
@@ -271,3 +273,5 @@ vmap <Enter> <Plug>(LiveEasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 nnoremap <BS> :GoTest<CR>
+
+noremap <plug>(slash-after) zz

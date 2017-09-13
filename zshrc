@@ -1,6 +1,5 @@
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
-export DISTRO=$(<~/.distro)
 
 # completion
 setopt always_to_end
