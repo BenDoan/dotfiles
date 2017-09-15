@@ -135,8 +135,7 @@ bar {
     position top
     status_command ~/.i3/conky
     colors {
-        #background #630404
-        background #000
+        background #000000
     }
 }
 
