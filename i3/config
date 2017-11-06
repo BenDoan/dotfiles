@@ -135,8 +135,7 @@ bar {
     position top
     status_command ~/.i3/conky
     colors {
-        #background #630404
-        background #000
+        background #000000
     }
 }
 
@@ -152,3 +151,4 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer set Master 2%+ && voln
 bindsym XF86AudioLowerVolume exec --no-startup-id "amixer set Master 2%- && volnoti-show $(amixer get Master | grep -Po '[0-9]+(?=%)' | head -1)"
 bindsym XF86AudioMute exec --no-startup-id "amixer set Master toggle && if amixer get Master | grep -Fq '[off]'; then volnoti-show -m; else volnoti-show $(amixer get Master | grep -Po '[0-9]+(?=%)' | head -1); fi"
 
+for_window [class="Pinentry"] floating enable

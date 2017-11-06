@@ -37,6 +37,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'udalov/kotlin-vim'
+Plug 'vim-scripts/mayansmoke'
 Plug 'zah/nimrod.vim', {'for': 'nim'}
 
 call plug#end()
