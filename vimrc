@@ -11,6 +11,7 @@ Plug 'derekwyatt/vim-scala', {'for': ['scala']}
 Plug 'elixir-lang/vim-elixir'
 Plug 'fatih/vim-go'
 Plug 'freeo/vim-kalisi'
+Plug 'jimmyhchan/dustjs.vim'
 Plug 'JuliaLang/julia-vim'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'}
 Plug 'junegunn/vim-easy-align'
@@ -25,7 +26,6 @@ Plug 'osyo-manga/vim-over'
 Plug 'posva/vim-vue'
 Plug 'racer-rust/vim-racer'
 Plug 'rust-lang/rust.vim'
-Plug 'scrooloose/nerdcommenter'
 Plug 'sirtaj/vim-openscad'
 Plug 'sjl/badwolf'
 Plug 'sjl/gundo.vim'
@@ -125,10 +125,11 @@ set autoindent
 set smarttab
 set cindent
 
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
+set breakindent
 
 "Undo stuff
 if v:version > 702
@@ -242,14 +243,18 @@ command Ipythone :normal oimport IPython; IPython.embed()<ESC>
 noremap  <C-C> <Esc>
 inoremap <C-C> <Esc>
 
+function ToggleJSSpec()
+  let ending = expand("%:t") =~ "\.spec\.js" ? ".js" : ".spec.js"
+  let file = system('git ls-files | grep -m1 "/$(echo ' . expand("%:t") . ' | cut -d. -f1)' . ending .'"')
+  execute 'edit' file
+endfunction
+noremap <leader>tt :call ToggleJSSpec()<CR>
+
 
 "PLUGINS
 """""""""""""""
 "Supertab
 let g:SuperTabDefaultCompletionType = "context"
-
-"Commenter
-map <C-i> <plug>NERDCommenterToggle
 
 "CamelCaseMotion
 map <silent> w <Plug>CamelCaseMotion_w
