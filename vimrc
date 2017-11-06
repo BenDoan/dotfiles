@@ -29,6 +29,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'sirtaj/vim-openscad'
 Plug 'sjl/badwolf'
 Plug 'sjl/gundo.vim'
+Plug 'terryma/vim-multiple-cursors'
 Plug 'tfnico/vim-gradle'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
@@ -36,6 +37,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'udalov/kotlin-vim'
+Plug 'vim-scripts/mayansmoke'
 Plug 'zah/nimrod.vim', {'for': 'nim'}
 
 call plug#end()
