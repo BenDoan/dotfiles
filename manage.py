@@ -7,23 +7,24 @@ import subprocess
 
 from os import path
 
-dotfiles = (
-            "vim",
-            "i3",
-            "fonts",
-            "vimrc",
-            "xsession",
-            "zshrc",
-            "conkyrc",
-            "tmux.conf",
-            "i3status.conf",
-            "profile",
-            "gitignore_global",
-            "gitconfig",
-            "compton.conf",
-            "dircolors",
-            "ipython",
-        )
+dotfiles = [
+    "compton.conf",
+    "conkyrc",
+    "dircolors",
+    "emacs",
+    "fonts",
+    "gitconfig",
+    "gitignore_global",
+    "i3",
+    "i3status.conf",
+    "ipython",
+    "profile",
+    "tmux.conf",
+    "vim",
+    "vimrc",
+    "xsession",
+    "zshrc",
+]
 
 red = '\033[91m'
 green = '\033[92m'
