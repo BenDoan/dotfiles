@@ -20,6 +20,7 @@ dotfiles = [
     "ipython",
     "profile",
     "tmux.conf",
+    "tmux",
     "vim",
     "vimrc",
     "xsession",
