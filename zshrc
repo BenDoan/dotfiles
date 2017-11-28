@@ -66,6 +66,9 @@ list_packages(){expac -s "%-30n %m" | sort -hk 2 | awk '{printf "%s %.0f MiB\n",
 
 get_random_file(){find . -type f | shuf -n 1}
 
+function diffchars(){git diff --color-words=. --no-index $1 $2}
+function diffwords(){git diff --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+' --no-index $1 $2}
+
 # Turn virtualenvs on/off
 function von(){
     dirname=$(basename $(pwd))
