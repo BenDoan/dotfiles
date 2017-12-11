@@ -182,6 +182,8 @@ if &term == "screen" || &term == "xterm"
   set title
 endif
 
+let g:python3_host_prog="/usr/bin/python3"
+
 "KEY MAPS
 """"""""
 
@@ -283,3 +285,5 @@ nmap ga <Plug>(EasyAlign)
 nnoremap <BS> :GoTest<CR>
 
 noremap <plug>(slash-after) zz
+
+let g:ale_python_mypy_options='--ignore-missing-imports'
