@@ -18,3 +18,5 @@
 *.zip
 
 *.pem
+
+.mypy_cache

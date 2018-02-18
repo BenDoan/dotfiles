@@ -41,6 +41,7 @@ Plug 'vim-scripts/mayansmoke'
 Plug 'w0rp/ale'
 Plug 'zah/nimrod.vim', {'for': 'nim'}
 
+
 call plug#end()
 
 behave xterm
@@ -287,3 +288,10 @@ nnoremap <BS> :GoTest<CR>
 noremap <plug>(slash-after) zz
 
 let g:ale_python_mypy_options='--ignore-missing-imports'
+let g:ale_python_flake8_options='--ignore=E501'
+let g:ale_linters = {
+\   'python': ['flake8'],
+\}
+
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
