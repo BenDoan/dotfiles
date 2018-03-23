@@ -27,6 +27,9 @@ autoload predict-off
 
 bindkey -e
 
+bindkey "${terminfo[khome]}" beginning-of-line
+bindkey "${terminfo[kend]}" end-of-line
+
 ## case-insensitive (all),partial-word and then substring completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"
@@ -66,6 +69,7 @@ list_packages(){expac -s "%-30n %m" | sort -hk 2 | awk '{printf "%s %.0f MiB\n",
 
 get_random_file(){find . -type f | shuf -n 1}
 
+function difflines(){git diff --no-index $1 $2}
 function diffchars(){git diff --color-words=. --no-index $1 $2}
 function diffwords(){git diff --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+' --no-index $1 $2}
 
@@ -80,6 +84,7 @@ function voff(){deactivate}
 
 alias resetres="xrandr --output eDP1 --mode 1920x1080"
 alias clip="xclip -selection clipboard"
+alias rg="rg -S"
 
 alias gpm="git push origin master"
 
@@ -99,10 +104,9 @@ eval $(dircolors ~/.dircolors)
 
 source $HOME/.profile
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib
-export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_DEFAULT_COMMAND='rg --files'
 export SYSTEMD_EDITOR="vim"
 
-[ -d ~/bin/z ] && source $HOME/bin/z/z.sh > /dev/null
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
