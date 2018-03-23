@@ -1,0 +1,67 @@
+behave xterm
+
+filetype plugin indent on " indents based
+
+""" Misc
+set history=10000 " remember : commands and searches
+set nobackup " don't write a backupfile before overwriting a file
+set noswapfile " disables creation of swapfiles
+set modeline  " enables parsing of modelines
+set mouse=a " enable mouse for all modes
+set laststatus=2  " status line always on
+set number " turn on line numbers
+set linebreak " wrap text visually
+set showmatch "jumps to matching parens
+set synmaxcol=800 " don't highlight long lines
+set splitright " add new splits to the right instead of the left
+set splitbelow " add new splits below instead of above
+
+""" Search
+set hlsearch " highlights all search matches
+set incsearch " shows matches as the search is typed
+set smartcase " ingnores case when search is entirely lowercase
+
+""" Tab
+set copyindent
+set autoindent
+set smarttab
+set cindent
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+
+""" Undo
+if v:version > 702
+    " persist undo history to disk
+    set undofile
+    set undodir=~/vimundo
+    set undolevels=1000
+    set undoreload=10000
+endif
+
+colors desert
+
+""" Bindings
+" causes j and k to scroll by the visible line
+nnoremap j gj
+nnoremap k gk
+
+" clear search
+nnoremap <leader><space> :nohl<cr>
+
+" center the line that the search result is on
+map N Nzz
+map n nzz
+
+" keeps the visual selection when you tab a piece of text over
+vnoremap < <gv
+vnoremap > >gv
+
+" disable :X
+cmap X<CR> x<CR>
+
+
+" rebind <C-c> to be the same as <Esc>
+noremap  <C-C> <Esc>
+inoremap <C-C> <Esc>
