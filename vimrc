@@ -20,7 +20,7 @@ Plug 'junegunn/vim-slash'
 Plug 'leafgarland/typescript-vim'
 Plug 'lepture/vim-jinja', {'for': 'jinja'}
 Plug 'lilydjwg/colorizer'
-Plug 'mattn/emmet-vim', {'for': ['html', 'jinja', 'php']}
+Plug 'mattn/emmet-vim'
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
 Plug 'osyo-manga/vim-over'
 Plug 'posva/vim-vue'
