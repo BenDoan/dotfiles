@@ -288,11 +288,11 @@ nnoremap <BS> :GoTest<CR>
 
 noremap <plug>(slash-after) zz
 
-let g:ale_python_mypy_options='--ignore-missing-imports'
-let g:ale_python_flake8_options='--ignore=E501'
-let g:ale_linters = {
-\   'python': ['flake8'],
-\}
-
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+let g:ale_linters = {
+\   'scala': ['scalac'],
+\   'java': ['checkstyle'],
+\   'python': ['flake8'],
+\}
