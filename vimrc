@@ -132,6 +132,7 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set breakindent
+set breakindentopt=min:20,shift:2
 
 "Undo stuff
 if v:version > 702
