@@ -22,10 +22,13 @@ Plug 'lepture/vim-jinja', {'for': 'jinja'}
 Plug 'lilydjwg/colorizer'
 Plug 'mattn/emmet-vim'
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
+Plug 'motus/pig.vim', {'for': 'pig'}
+Plug 'mustache/vim-mustache-handlebars', {'for': ['handlebars', 'handlebars.ember']}
 Plug 'osyo-manga/vim-over'
 Plug 'posva/vim-vue'
 Plug 'racer-rust/vim-racer'
 Plug 'rust-lang/rust.vim'
+Plug 'sbdchd/neoformat'
 Plug 'sirtaj/vim-openscad'
 Plug 'sjl/badwolf'
 Plug 'sjl/gundo.vim'
@@ -40,6 +43,8 @@ Plug 'udalov/kotlin-vim'
 Plug 'vim-scripts/mayansmoke'
 Plug 'w0rp/ale'
 Plug 'zah/nimrod.vim', {'for': 'nim'}
+Plug 'dsawardekar/ember.vim', {'for': ['handlebars.ember', 'javascript', 'scss']}
+Plug 'dsawardekar/portkey', {'for': ['handlebars.ember', 'javascript', 'scss']}
 
 
 call plug#end()
@@ -96,6 +101,7 @@ augroup autocmds
     autocmd!
 
     au BufWritePre * silent g/\s\+$/s/// " Remove trailing spaces after save
+    autocmd BufWritePre *.js Neoformat
 
     au VimEnter * ColorHighlight
 
