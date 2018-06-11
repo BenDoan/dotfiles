@@ -25,12 +25,14 @@ dotfiles = [
     "vimrc",
     "xsession",
     "zshrc",
+    "config/fish/config.fish",
 ]
 
 red = '\033[91m'
 green = '\033[92m'
 orange = '\033[93m'
 NC = '\033[0m'
+
 
 def install(args):
     print("Installing dotfiles...")
@@ -39,6 +41,12 @@ def install(args):
     for dotfile in dotfiles:
         dest = path.expanduser("~/.{}".format(dotfile))
         source = path.expanduser("~/dotfiles/{}".format(dotfile))
+
+        dest_dir = path.dirname(dest)
+        if not path.exists(dest_dir):
+            print("Making dir: {}".format(dest_dir))
+            os.makedirs(dest_dir)
+
         if path.exists(dest) and not path.islink(dest):
             print("Error: regular file exists for {}".format(dotfile))
         elif not path.islink(dest):
@@ -48,6 +56,7 @@ def install(args):
     # additional setup
     subprocess.call(['bash', '_setup.sh'])
     subprocess.call(['git', 'submodule', 'update', '--init'])
+
 
 def uninstall(args):
     print("Unlinking dotfiles...")
@@ -60,6 +69,7 @@ def uninstall(args):
             print("Unlinking {}".format(dotfile))
         elif path.exists(dest):
             print("Error: regular file exists for {}".format(dotfile))
+
 
 def status(args):
     print("Stats:")
@@ -79,6 +89,7 @@ def status(args):
         else:
             print("{}{} does not exist{}".format(orange, dotfile, NC))
 
+
 def main():
     parser = argparse.ArgumentParser(description="manages a user's dotfiles")
     sp = parser.add_subparsers()
@@ -94,6 +105,7 @@ def main():
 
     args = parser.parse_args()
     args.func(args)
+
 
 if __name__ == "__main__":
     main()
