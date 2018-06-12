@@ -4,6 +4,11 @@ set -x FZF_DEFAULT_COMMAND "rg --files"
 set -x FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 
 function fish_prompt
+  set -l last_status $status
+
+  if [ "$last_status" != "0" ]
+    echo -n "[$last_status] "
+  end
     echo -n '→ '
 end
 
