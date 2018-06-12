@@ -105,6 +105,7 @@ eval $(dircolors ~/.dircolors)
 source $HOME/.profile
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib
 export FZF_DEFAULT_COMMAND='rg --files'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export SYSTEMD_EDITOR="vim"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
