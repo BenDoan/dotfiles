@@ -6,6 +6,7 @@ Plug 'bling/vim-airline'
 Plug 'bruno-/vim-husk'
 Plug 'cespare/vim-toml'
 Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'dag/vim-fish'
 Plug 'derekwyatt/vim-fswitch', {'for': ['c', 'cpp']}
 Plug 'derekwyatt/vim-scala', {'for': ['scala']}
 Plug 'elixir-lang/vim-elixir'
