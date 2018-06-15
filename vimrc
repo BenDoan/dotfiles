@@ -9,6 +9,8 @@ Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'dag/vim-fish'
 Plug 'derekwyatt/vim-fswitch', {'for': ['c', 'cpp']}
 Plug 'derekwyatt/vim-scala', {'for': ['scala']}
+Plug 'dsawardekar/ember.vim', {'for': ['handlebars.ember', 'javascript', 'scss']}
+Plug 'dsawardekar/portkey', {'for': ['handlebars.ember', 'javascript', 'scss']}
 Plug 'elixir-lang/vim-elixir'
 Plug 'fatih/vim-go'
 Plug 'freeo/vim-kalisi'
@@ -30,6 +32,7 @@ Plug 'posva/vim-vue'
 Plug 'racer-rust/vim-racer'
 Plug 'rust-lang/rust.vim'
 Plug 'sbdchd/neoformat'
+Plug 'sebastianmarkow/deoplete-rust'
 Plug 'sirtaj/vim-openscad'
 Plug 'sjl/badwolf'
 Plug 'sjl/gundo.vim'
@@ -45,8 +48,20 @@ Plug 'udalov/kotlin-vim'
 Plug 'vim-scripts/mayansmoke'
 Plug 'w0rp/ale'
 Plug 'zah/nimrod.vim', {'for': 'nim'}
-Plug 'dsawardekar/ember.vim', {'for': ['handlebars.ember', 'javascript', 'scss']}
-Plug 'dsawardekar/portkey', {'for': ['handlebars.ember', 'javascript', 'scss']}
+
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
 
 
 call plug#end()
@@ -104,6 +119,8 @@ augroup autocmds
 
     au BufWritePre * silent g/\s\+$/s/// " Remove trailing spaces after save
     autocmd BufWritePre *.js Neoformat
+    " autocmd BufWritePre *.py Neoformat
+    autocmd BufWritePre *.rs Neoformat
 
     au VimEnter * ColorHighlight
 
@@ -118,6 +135,7 @@ augroup autocmds
     au FileType vue setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
     au FileType javascript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
     au FileType kotlin setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+    au FileType typescript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
     au BufEnter * let &titlestring = "vim - " . expand("%:p")
 augroup END
@@ -167,6 +185,10 @@ set wildignore+=*.luac
 set wildignore+=*.pyc
 
 set wildignore+=*.orig
+
+if has('nvim')
+    set inccommand=nosplit
+endif
 
 
 set background=dark
@@ -308,3 +330,14 @@ let g:ale_python_flake8_options='--ignore=E501'
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+    \ 'python': ['pyls'],
+    \ }
+
+let g:deoplete#sources#rust#racer_binary='which racer'
+let g:deoplete#sources#rust#rust_source_path='/home/ben/tmp/rust/src'
+
