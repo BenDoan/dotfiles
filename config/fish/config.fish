@@ -1,3 +1,5 @@
+set -x PATH $PATH "$HOME/.cargo/bin"
+
 set fish_greeting
 
 set -x FZF_DEFAULT_COMMAND "rg --files"
@@ -23,4 +25,19 @@ end
 
 if type -q nvim 2> /dev/null
     alias vim "nvim"
+end
+
+function von
+    set dirname (basename (pwd))
+    if test -d ./env
+        source env/bin/activate.fish
+    else if test -n $dirname ;and test -d $HOME/envs/$dirname
+        source $HOME/envs/$dirname/bin/activate.fish
+    else
+        echo "Found no virtualenv"
+    end
+end
+
+function voff
+    deactivate
 end
