@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
+Plug 'ARM9/arm-syntax-vim'
 Plug 'BenDoan/tf2syntax.vim', {'for': 'tf2'}
 Plug 'bkad/CamelCaseMotion'
 Plug 'bling/vim-airline'
@@ -29,6 +30,7 @@ Plug 'motus/pig.vim', {'for': 'pig'}
 Plug 'mustache/vim-mustache-handlebars', {'for': ['handlebars', 'handlebars.ember']}
 Plug 'osyo-manga/vim-over'
 Plug 'posva/vim-vue'
+Plug 'qnighy/lalrpop.vim'
 Plug 'racer-rust/vim-racer'
 Plug 'rust-lang/rust.vim'
 Plug 'sbdchd/neoformat'
@@ -118,6 +120,7 @@ augroup autocmds
     autocmd!
 
     au BufWritePre * silent g/\s\+$/s/// " Remove trailing spaces after save
+    au BufNewFile,BufRead *.s,*.S set filetype=arm
     autocmd BufWritePre *.js Neoformat
     " autocmd BufWritePre *.py Neoformat
     autocmd BufWritePre *.rs Neoformat
@@ -136,6 +139,7 @@ augroup autocmds
     au FileType javascript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
     au FileType kotlin setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
     au FileType typescript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+
 
     au BufEnter * let &titlestring = "vim - " . expand("%:p")
 augroup END
@@ -202,8 +206,6 @@ elseif has("gui")
 endif
 set t_Co=256
 colors badwolf
-
-set listchars=eol:¬
 
 let &titlestring = hostname() . "[vim(" . expand("%:t") . ")]"
 if &term == "screen"
