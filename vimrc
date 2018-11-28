@@ -12,7 +12,6 @@ Plug 'junegunn/vim-pseudocl'
 Plug 'junegunn/vim-slash'
 Plug 'mattn/emmet-vim'
 Plug 'osyo-manga/vim-over'
-Plug 'racer-rust/vim-racer'
 Plug 'sjl/badwolf'
 Plug 'tpope/vim-apathy'
 Plug 'tpope/vim-commentary'
@@ -89,6 +88,7 @@ augroup autocmds
     autocmd!
 
     au BufWritePre * silent g/\s\+$/s/// " Remove trailing spaces after save
+    au BufNewFile,BufRead *.s,*.S set filetype=arm
 
     au WinEnter * setlocal cursorline "only emabled the cursorline in the active window
     au WinLeave * setlocal nocursorline
@@ -103,6 +103,7 @@ augroup autocmds
     au FileType vue setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
     au FileType javascript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
     au FileType kotlin setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+    au FileType typescript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 augroup END
 
 "Search stuff
@@ -147,6 +148,10 @@ set wildignore+=*.DS_Store
 set wildignore+=*.luac
 set wildignore+=*.pyc
 set wildignore+=*.orig
+
+if has('nvim')
+    set inccommand=nosplit
+endif
 
 set background=dark
 let g:badwolf_html_link_underline = 0
@@ -296,3 +301,12 @@ let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
 
 " List of colors that you do not want. ANSI code or #RRGGBB
 let g:rainbow#blacklist = [233, 234]
+
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+    \ 'python': ['pyls'],
+    \ }
+
+let g:deoplete#sources#rust#racer_binary='which racer'

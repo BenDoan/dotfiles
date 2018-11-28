@@ -1,3 +1,5 @@
+set -x PATH $PATH "$HOME/.cargo/bin"
+
 set fish_greeting
 
 set -x FZF_DEFAULT_COMMAND 'rg --files'
@@ -44,17 +46,6 @@ function fish_right_prompt -d "Write out the right prompt"
     echo -n " "
     set_color normal
 end
-#
-# Turn virtualenvs on/off
-function von
-    set dirname (basename (pwd))
-    if [[ -n $dirname && -d $HOME/envs/$dirname ]]; then
-        source $HOME/envs/$dirname/bin/activate
-    end
-end
-function voff
-  deactivate
-end
 
 function eval_ssh_agent
     eval (command ssh-agent -c | sed -E 's/^setenv (.+);$/set \1; set -Ux \1;/')
@@ -62,6 +53,21 @@ end
 
 if type -q nvim
     alias vim "nvim"
+end
+
+function von
+    set dirname (basename (pwd))
+    if test -d ./env
+        source env/bin/activate.fish
+    else if test -n $dirname ;and test -d $HOME/envs/$dirname
+        source $HOME/envs/$dirname/bin/activate.fish
+    else
+        echo "Found no virtualenv"
+    end
+end
+
+function voff
+    deactivate
 end
 
 if [ -f "$HOME/.config.local.fish" ]
