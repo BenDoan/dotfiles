@@ -1,53 +1,38 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'BenDoan/tf2syntax.vim', {'for': 'tf2'}
 Plug 'bkad/CamelCaseMotion'
 Plug 'bling/vim-airline'
 Plug 'bruno-/vim-husk'
-Plug 'cespare/vim-toml'
+Plug 'carlitux/deoplete-ternjs'
 Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'dag/vim-fish'
-Plug 'derekwyatt/vim-fswitch', {'for': ['c', 'cpp']}
-Plug 'derekwyatt/vim-scala', {'for': ['scala']}
-Plug 'elixir-lang/vim-elixir'
 Plug 'fatih/vim-go'
-Plug 'freeo/vim-kalisi'
-Plug 'jimmyhchan/dustjs.vim'
-Plug 'JuliaLang/julia-vim'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'}
-Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-pseudocl'
 Plug 'junegunn/vim-slash'
-Plug 'leafgarland/typescript-vim'
-Plug 'lepture/vim-jinja', {'for': 'jinja'}
-Plug 'lilydjwg/colorizer'
 Plug 'mattn/emmet-vim'
-Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
-Plug 'motus/pig.vim', {'for': 'pig'}
-Plug 'mustache/vim-mustache-handlebars', {'for': ['handlebars', 'handlebars.ember']}
 Plug 'osyo-manga/vim-over'
-Plug 'posva/vim-vue'
 Plug 'racer-rust/vim-racer'
-Plug 'rust-lang/rust.vim'
-Plug 'sbdchd/neoformat'
-Plug 'sirtaj/vim-openscad'
 Plug 'sjl/badwolf'
-Plug 'sjl/gundo.vim'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'tfnico/vim-gradle'
 Plug 'tpope/vim-apathy'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
-Plug 'udalov/kotlin-vim'
-Plug 'vim-scripts/mayansmoke'
 Plug 'w0rp/ale'
-Plug 'zah/nimrod.vim', {'for': 'nim'}
-Plug 'dsawardekar/ember.vim', {'for': ['handlebars.ember', 'javascript', 'scss']}
-Plug 'dsawardekar/portkey', {'for': ['handlebars.ember', 'javascript', 'scss']}
+Plug 'zchee/deoplete-jedi', {'for': 'python'}
+Plug 'sheerun/vim-polyglot'
+Plug 'junegunn/rainbow_parentheses.vim'
 
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
 
 call plug#end()
 
@@ -92,6 +77,7 @@ set lazyredraw "don't update screen when execing macros
 set synmaxcol=800 "don't highlight long lines
 set splitright
 set splitbelow
+set iskeyword+=\- " include dashes in autocomplete
 
 "for terminal vim
 set notimeout
@@ -103,23 +89,20 @@ augroup autocmds
     autocmd!
 
     au BufWritePre * silent g/\s\+$/s/// " Remove trailing spaces after save
-    autocmd BufWritePre *.js Neoformat
-
-    au VimEnter * ColorHighlight
 
     au WinEnter * setlocal cursorline "only emabled the cursorline in the active window
     au WinLeave * setlocal nocursorline
 
-    au FocusLost * silent! :wa "saves all files when vim loses focus
-    au WinLeave * silent! :wa
+    " au VimEnter * RainbowParentheses
+
+    " au FocusLost * silent! :wa "saves all files when vim loses focus
+    " au WinLeave * silent! :wa
 
     "Filetype settings
     au FileType go setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=2
     au FileType vue setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
     au FileType javascript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
     au FileType kotlin setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
-
-    au BufEnter * let &titlestring = "vim - " . expand("%:p")
 augroup END
 
 "Search stuff
@@ -127,7 +110,7 @@ set ignorecase
 set hlsearch
 set incsearch
 set ignorecase
-set smartcase "ingnores case when for lowercase, searches by case for uppercase
+set smartcase "ignores case when for lowercase, searches by case for uppercase
 
 "Tab stuff
 set copyindent
@@ -135,9 +118,9 @@ set autoindent
 set smarttab
 set cindent
 
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set breakindent
 set breakindentopt=min:20,shift:2
@@ -161,13 +144,9 @@ set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest
 set wildignore+=*.spl
 set wildignore+=*.sw?
 set wildignore+=*.DS_Store
-
 set wildignore+=*.luac
-
 set wildignore+=*.pyc
-
 set wildignore+=*.orig
-
 
 set background=dark
 let g:badwolf_html_link_underline = 0
@@ -181,8 +160,6 @@ endif
 set t_Co=256
 colors badwolf
 
-set listchars=eol:¬
-
 let &titlestring = hostname() . "[vim(" . expand("%:t") . ")]"
 if &term == "screen"
   set t_ts=^[k
@@ -192,7 +169,7 @@ if &term == "screen" || &term == "xterm"
   set title
 endif
 
-let g:python3_host_prog="/usr/bin/python3"
+let g:python3_host_prog="/export/apps/python/3.6/bin/python3"
 
 "KEY MAPS
 """"""""
@@ -288,7 +265,7 @@ let g:user_emmet_leader_key='<C-e>'
 
 " Vim-easy-align
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-vmap <Enter> <Plug>(LiveEasyAlign)
+nmap <Enter> :ALENext<CR>
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
@@ -302,9 +279,20 @@ let g:ale_linters = {
 \   'python': ['flake8'],
 \}
 
+let g:ale_fixers = {
+\   'javascript': ['prettier', 'eslint'],
+\}
+
 let g:ale_python_mypy_options='--ignore-missing-imports'
 let g:ale_python_pylint_options='--disable=invalid-name,missing-docstring'
 let g:ale_python_flake8_options='--ignore=E501'
+let g:ale_fix_on_save = 1
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+let g:rainbow#max_level = 16
+let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
+
+" List of colors that you do not want. ANSI code or #RRGGBB
+let g:rainbow#blacklist = [233, 234]
