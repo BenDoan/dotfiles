@@ -3,7 +3,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'bkad/CamelCaseMotion'
 Plug 'bling/vim-airline'
 Plug 'bruno-/vim-husk'
-Plug 'carlitux/deoplete-ternjs'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'fatih/vim-go'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'}
@@ -20,18 +19,8 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
-Plug 'zchee/deoplete-jedi', {'for': 'python'}
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/rainbow_parentheses.vim'
-
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
 
 call plug#end()
 
@@ -46,14 +35,9 @@ set nobackup
 set backupcopy=yes
 set noswapfile
 set backspace=indent,eol,start "fixes backspacing in normal mode
-set guioptions-=T  "remove menu bar
 set modeline
-
 set modeline "reads modelines, eg: '# vim: set ai tw=75'
-
 set noeb vb t_vb= "Stops screen flashing
-au GUIEnter * set vb t_vb=
-
 set nofoldenable "disables code folding
 
 set autowrite "saves the current file on certain actions
@@ -71,14 +55,12 @@ set scrolloff=2 "minscrollspace above/below cursor
 set cmdheight=1 "sets command window at bottom
 set showmatch "Jumps to matching paren
 set mat=5 "how long to show matching parens
-set cpoptions+=ces$ "makes cw put a $ at the end instead of deleting
+set cpoptions+=ces$ "keeps text visible while using the change action
 set lazyredraw "don't update screen when execing macros
 set synmaxcol=800 "don't highlight long lines
 set splitright
 set splitbelow
 set iskeyword+=\- " include dashes in autocomplete
-
-"for terminal vim
 set notimeout
 set ttimeout
 set ttimeoutlen=10
@@ -88,15 +70,6 @@ augroup autocmds
     autocmd!
 
     au BufWritePre * silent g/\s\+$/s/// " Remove trailing spaces after save
-    au BufNewFile,BufRead *.s,*.S set filetype=arm
-
-    au WinEnter * setlocal cursorline "only emabled the cursorline in the active window
-    au WinLeave * setlocal nocursorline
-
-    " au VimEnter * RainbowParentheses
-
-    " au FocusLost * silent! :wa "saves all files when vim loses focus
-    " au WinLeave * silent! :wa
 
     "Filetype settings
     au FileType go setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=2
@@ -165,20 +138,8 @@ endif
 set t_Co=256
 colors badwolf
 
-let &titlestring = hostname() . "[vim(" . expand("%:t") . ")]"
-if &term == "screen"
-  set t_ts=^[k
-  set t_fs=^[\
-endif
-if &term == "screen" || &term == "xterm"
-  set title
-endif
-
-let g:python3_host_prog="/export/apps/python/3.6/bin/python3"
-
 "KEY MAPS
 """"""""
-
 set pastetoggle=<F2>
 let mapleader = ","
 
@@ -199,9 +160,6 @@ noremap <C-l> <C-w>l
 "Selects the last pasted text
 nnoremap gp `[v`]
 
-" Column scroll-binding on <leader>sb
-noremap <silent> <leader>sb :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
-
 " copies until end of line
 nmap Y y$
 
@@ -216,24 +174,11 @@ map! <F1> <Esc>
 vnoremap < <gv
 vnoremap > >gv
 
-"panic button
-nnoremap <f9> mzggg?G`z
-
 "keeps the cursor in the same place when joining lines
 nnoremap J mzJ`z
 
-"split lines
-nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
-
-" Toggle [i]nvisible characters
-nnoremap <leader>i :set list!<cr>
-
 " disable :X
 cmap X<CR> x<CR>
-
-nnoremap ,cd :cd %:p:h<CR>
-
-command Ipythone :normal oimport IPython; IPython.embed()<ESC>
 
 noremap  <C-C> <Esc>
 inoremap <C-C> <Esc>
@@ -248,9 +193,6 @@ noremap <leader>tt :call ToggleJSSpec()<CR>
 
 "PLUGINS
 """""""""""""""
-"Supertab
-let g:SuperTabDefaultCompletionType = "context"
-
 "CamelCaseMotion
 map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b
@@ -262,21 +204,10 @@ sunmap e
 "FZF
 nnoremap <space> :FZF<CR>
 
-"Fswitch
-nmap <silent> <leader>of :FSHere<cr>
-
 "Emmet
 let g:user_emmet_leader_key='<C-e>'
 
-" Vim-easy-align
-" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 nmap <Enter> :ALENext<CR>
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
-nnoremap <BS> :GoTest<CR>
-
-noremap <plug>(slash-after) zz
 
 let g:ale_linters = {
 \   'scala': ['scalac'],
@@ -293,9 +224,6 @@ let g:ale_python_pylint_options='--disable=invalid-name,missing-docstring'
 let g:ale_python_flake8_options='--ignore=E501'
 let g:ale_fix_on_save = 1
 
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
-
 let g:rainbow#max_level = 16
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
 
@@ -308,5 +236,3 @@ let g:LanguageClient_serverCommands = {
     \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
     \ 'python': ['pyls'],
     \ }
-
-let g:deoplete#sources#rust#racer_binary='which racer'
