@@ -8,6 +8,7 @@ import subprocess
 from os import path
 
 dotfiles = [
+    "alacritty.yml",
     "compton.conf",
     "conkyrc",
     "dircolors",
