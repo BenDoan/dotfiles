@@ -7,10 +7,14 @@ Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'fatih/vim-go'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'}
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'junegunn/vim-pseudocl'
 Plug 'junegunn/vim-slash'
 Plug 'mattn/emmet-vim'
 Plug 'osyo-manga/vim-over'
+Plug 'qnighy/lalrpop.vim'
+Plug 'sheerun/vim-polyglot'
 Plug 'sjl/badwolf'
 Plug 'tpope/vim-apathy'
 Plug 'tpope/vim-commentary'
@@ -19,8 +23,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
-Plug 'sheerun/vim-polyglot'
-Plug 'junegunn/rainbow_parentheses.vim'
 
 call plug#end()
 
@@ -77,6 +79,7 @@ augroup autocmds
     au FileType javascript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
     au FileType kotlin setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
     au FileType typescript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+    au FileType rust setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 augroup END
 
 "Search stuff
@@ -217,6 +220,7 @@ let g:ale_linters = {
 
 let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
+\   'rust': ['rustfmt'],
 \}
 
 let g:ale_python_mypy_options='--ignore-missing-imports'

@@ -1,7 +1,7 @@
 [user]
 	email = ben@bendoan.me
 	name = Ben Doan
-	signingkey = ben@bendoan.me
+	signingkey = D247B623A2D5180E0D895CB4A69ED9A4068F124B
 [alias]
 	c = commit -S
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit

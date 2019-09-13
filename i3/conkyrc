@@ -14,6 +14,7 @@ TEXT
   {"full_text": " ♪ ${exec amixer get Master -M | grep -oE -m1 '[[:digit:]]*%'} ","color": "\#04B486"},
   {"full_text": " $acpitemp°C ","color": "\#DC322F"},
   {"full_text": " ☼  ${exec cat /sys/class/backlight/intel_backlight/brightness} ","color": "\#DCD22F"},
+  {"full_text": " ≣ ${mem} [${membar}] ${swap} [${swapbar}| ", "color":"\#338100"},
   {"full_text": " ≣ ${cpu cpu1}% [${cpubar cpu1}] ${cpu cpu2}% [${cpubar cpu2}] ${cpu cpu3}% [${cpubar cpu3}] ${cpu cpu4}% [${cpubar cpu4}] ", "color":"\#B58900"},
   {"full_text": " ≈ $loadavg ","color":"\#8991FA"},
   {"full_text": " ☇ ${battery_percent BAT0}%","color":"\#9933CC"},
