@@ -76,7 +76,9 @@ function diffwords(){git diff --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUA
 # Turn virtualenvs on/off
 function von(){
     dirname=$(basename $(pwd))
-    if [[ -n $dirname && -d $HOME/envs/$dirname ]]; then
+    if [[ -f env/bin/activate ]]; then
+        source env/bin/activate
+    elif [[ -n $dirname && -d $HOME/envs/$dirname ]]; then
         source $HOME/envs/$dirname/bin/activate
     fi
 }
