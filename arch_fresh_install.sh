@@ -1,4 +1,4 @@
-programs="python base-devel conky roxterm htop ntp emacs libreoffice rsync zenity zsh gvim meld firefox chromium python2 python2-pip vlc curl tmux dmenu i3 acpi mosh git at gimp scrot"
+programs="python base-devel conky roxterm htop ntp emacs libreoffice rsync zenity zsh gvim meld firefox chromium python2 python2-pip vlc curl tmux dmenu i3 acpi mosh git at gimp scrot pass gnupg"
 aur_programs="rofi" #not used currently
 
 ~/dotfiles/manage.sh install
