@@ -11,6 +11,9 @@
 (unless (package-installed-p 'magit)
   (package-install 'magit))
 
+(unless (package-installed-p 'helm)
+  (package-install 'helm))
+
 (require 'evil)
 (evil-mode 1)
 
