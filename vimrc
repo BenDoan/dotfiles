@@ -5,6 +5,7 @@ Plug 'bling/vim-airline'
 Plug 'bruno-/vim-husk'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'fatih/vim-go'
+Plug 'jceb/vim-orgmode'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'}
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
