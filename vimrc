@@ -24,6 +24,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
+Plug '~/code/active/vim-pdl'
 
 call plug#end()
 

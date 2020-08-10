@@ -20,6 +20,10 @@ setxkbmap -option ctrl:nocaps &
 #sh /home/ben/scripts/startup.sh &
 DEFAULT_SESSION=i3
 #compton -b --backend glx --vsync opengl
+picom -cCGb --backend glx &
+
+xrdb -merge $HOME/.Xresources
+
 
 #sleep 1
 
