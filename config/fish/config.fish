@@ -36,12 +36,22 @@ function fish_prompt
   set -l last_status $status
 
   if [ "$last_status" != "0" ]
-    echo -n "[$last_status] "
+    echo -n "["
+    set_color $fish_color_error
+    echo -n $last_status
+    set_color normal
+    echo -n "] "
   end
-    echo -n '→ '
+
+  if set -q fish_private_mode
+    set_color $fish_color_comment
+    echo -n "p "
+    set_color normal
+  end
+  echo -n '→ '
 end
 
-function fish_right_prompt -d "Write out the right prompt"
+function fish_right_prompt
     set_color $fish_color_cwd
     echo -n (prompt_pwd)
     echo -n " "
