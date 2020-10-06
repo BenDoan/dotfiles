@@ -45,7 +45,7 @@ function fish_prompt
 
   if set -q fish_private_mode
     set_color $fish_color_comment
-    echo -n "p "
+    echo -n "(p) "
     set_color normal
   end
   echo -n '→ '
