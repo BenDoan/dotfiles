@@ -22,8 +22,9 @@ DEFAULT_SESSION=i3
 #compton -b --backend glx --vsync opengl
 picom -cCGb --backend glx &
 
-xrdb -merge $HOME/.Xresources
+xrdb -merge $HOME/.Xresources &
 
+test -f ~/dotfiles/bin/startautolock && ~/dotfiles/bin/startautolock &
 
 #sleep 1
 
