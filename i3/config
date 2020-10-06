@@ -146,7 +146,6 @@ new_window 1pixel
 
 #locks screen
 bindsym $MOD+o exec i3lock -c 333333
-bindsym $MOD+g exec gone
 bindsym $MOD+m exec xrandr --auto
 
 # volnoti bindings
