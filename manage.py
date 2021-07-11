@@ -26,6 +26,7 @@ dotfiles = [
     "xsession",
     "zshrc",
     "config/fish/config.fish",
+    "config/nvim",
 ]
 
 red = '\033[91m'
