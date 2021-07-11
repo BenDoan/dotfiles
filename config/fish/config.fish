@@ -81,6 +81,12 @@ function voff
     deactivate
 end
 
+
+set wlan "wlan0"
+alias wifi-status="iwctl station $wlan show"
+alias wifi-scan="iwctl station $wlan scan; sleep 2; iwctl station $wlan get-networks"
+alias wifi-connect="iwctl station $wlan connect"
+
 if [ -f "$HOME/.config.local.fish" ]
   source $HOME/.config.local.fish
 end

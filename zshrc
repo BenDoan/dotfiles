@@ -88,6 +88,11 @@ alias resetres="xrandr --output eDP1 --mode 1920x1080"
 alias clip="xclip -selection clipboard"
 alias rg="rg -S"
 
+export wlan="wlan0"
+alias wifi-status="iwctl station $wlan show"
+alias wifi-scan="iwctl station $wlan scan; iwctl station $wlan get-networks"
+alias wifi-connect="iwctl station $wlan connect"
+
 alias gpm="git push origin master"
 
 if hash nvim 2> /dev/null; then

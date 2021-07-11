@@ -2,7 +2,6 @@
 
 import argparse
 import os
-import platform
 import subprocess
 
 from os import path
@@ -75,7 +74,6 @@ def uninstall(args):
 def status(args):
     print("Stats:")
     print("Managing {} dotfiles".format(len(dotfiles)))
-    print("OS is: {}".format("".join(platform.dist())))
 
     print("")
 
