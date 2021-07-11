@@ -23,7 +23,7 @@ dotfiles = [
     "tmux",
     "vim",
     "vimrc",
-    "xsession",
+    "xinitrc",
     "zshrc",
     "config/fish/config.fish",
     "config/nvim",
