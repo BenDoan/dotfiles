@@ -36,6 +36,12 @@ end
 function fish_prompt
   set -l last_status $status
 
+  if [ "$SHELLPROMPTHOSTNAME" ]
+    set_color dbbc3d
+    echo -n "($SHELLPROMPTHOSTNAME) "
+    set_color normal
+  end
+
   if [ "$last_status" != "0" ]
     echo -n "["
     set_color $fish_color_error
