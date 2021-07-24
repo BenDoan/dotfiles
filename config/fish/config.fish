@@ -1,5 +1,6 @@
 set -x PATH $PATH "$HOME/bin"
 set -x PATH $PATH "$HOME/.cargo/bin"
+set -x PATH $PATH "$HOME/dotfiles/bin"
 
 set fish_greeting
 
