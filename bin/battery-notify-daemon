@@ -1,0 +1,17 @@
+#!/bin/bash
+
+sleeptime=60
+batterylimit=10
+
+while :; do
+  batterypercent=$(acpi | egrep -o '[0-9]{1,2}%' | egrep -o '[0-9]{1,2}')
+  isdischarging=$(acpi | grep Discharging)
+
+  if [[ $isdischarging && $batterypercent -lt $batterylimit ]]; then
+    msg="Battery low: $batterypercent"
+    notify-send "$msg"
+    i3-nagbar -m "$msg"
+  fi
+
+  sleep $sleeptime
+done
