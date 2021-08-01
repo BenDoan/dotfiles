@@ -33,4 +33,5 @@ sudo pacman -S \
   openssh \
   rsync \
   conky \
-  fakeroot
+  fakeroot \
+  p7zip
