@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import argparse
 import os
@@ -20,7 +20,6 @@ dotfiles = [
     "ipython",
     "profile",
     "tmux.conf",
-    "tmux",
     "vim",
     "vimrc",
     "xinitrc",
