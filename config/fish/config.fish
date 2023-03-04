@@ -9,7 +9,7 @@ set -x FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 set -x EDITOR "nvim"
 
 alias tmux 'tmux -2'
-alias ls 'ls -hF --color=auto --group-directories-first'
+alias ls 'ls -hF'
 alias rg "rg -S"
 alias gpm 'git push origin master'
 
