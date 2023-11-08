@@ -1,0 +1,68 @@
+#!/usr/bin/env python3
+
+import datetime
+import re
+import subprocess
+import time
+from enum import Enum
+
+class AlertMethod(Enum):
+    ALERT = 1
+    NAG = 2
+
+
+SLEEP_TIME_SECONDS = 60
+NOTIFY_TIME_MS = 10 * 1000
+CHECKPOINTS = {
+    30: AlertMethod.ALERT,
+    45: AlertMethod.ALERT,
+    60: AlertMethod.NAG,
+    90: AlertMethod.NAG,
+    120: AlertMethod.NAG,
+    150: AlertMethod.NAG,
+    180: AlertMethod.NAG,
+}
+
+
+def main():
+    while True:
+        time_elapsed = get_time_elapsed_since_last_sleep()
+        if time_elapsed:
+            for checkpoint_minutes, method in CHECKPOINTS.items():
+                elapsed_minutes = time_elapsed.total_seconds() // 60
+                if elapsed_minutes == checkpoint_minutes:
+                    alert(time_elapsed, method)
+
+            print(timedelta_to_human(time_elapsed))
+        time.sleep(SLEEP_TIME_SECONDS)
+
+
+def alert(time_elapsed, alert_method=AlertMethod.ALERT):
+    msg = f"ℹ️ Time since last sleep: {timedelta_to_human(time_elapsed)}"
+    print(msg)
+    if alert_method == AlertMethod.ALERT:
+        subprocess.check_output(["notify-send", "-t", str(NOTIFY_TIME_MS), "-u", "normal", msg])
+    elif alert_method == AlertMethod.NAG:
+        subprocess.check_output(["i3-nagbar", "--type", "warning", "-m", msg])
+
+
+def get_time_elapsed_since_last_sleep():
+    # format: 'Sep 15 14:34:24 harshaw systemd[1]: Stopped target Sleep.\n'
+    sleep_log = subprocess.check_output(["journalctl", "-u", "sleep.target", "-n", "1"]).decode("utf-8")
+
+    date_str_match = re.search("\w+ \d+ \d+:\d+:\d+", sleep_log)
+    if date_str_match:
+        match = date_str_match.group(0)
+        dt = datetime.datetime.strptime(match, "%b %d %H:%M:%S")
+        dt = dt.replace(year=datetime.datetime.now().year)
+        return datetime.datetime.now() - dt
+    return None
+
+
+def timedelta_to_human(td):
+    dt = datetime.datetime.utcfromtimestamp(td.total_seconds())
+    return dt.strftime("%H:%M")
+
+
+if __name__ == '__main__':
+    main()
