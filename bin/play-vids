@@ -1,0 +1,15 @@
+#!/bin/bash
+
+vid=$(head -n1 vids.txt)
+l=$(echo $vid | wc -c)
+paddingl=$(($l + 8))
+dashes=$(printf "%0.s=" $(seq 0 $paddingl))
+
+echo $dashes
+echo "Playing $vid"
+echo $dashes
+
+tail -n +2 vids.txt > vids-tmp.txt
+rm vids.txt
+mv vids-tmp.txt vids.txt
+vlc "$vid"
