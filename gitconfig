@@ -23,3 +23,10 @@
 	enabled = 1
 [commit]
 	gpgsign = true
+	verbose = true
+[merge]
+	conflictstyle = zdiff3
+[push]
+	default = current
+[diff]
+	algorithm = histogram
