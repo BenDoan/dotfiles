@@ -54,7 +54,6 @@ setopt NO_BEEP
 setopt NO_CASE_GLOB
 
 # general aliases
-alias ls='ls -hF --color=auto --group-directories-first'
 alias ll='ls -l'
 alias tmux="tmux -2"
 
@@ -106,8 +105,6 @@ alias -g .....='../../../../' #cd .....
 for c in tar mv cp rm chmod chown rename link rmdir; do
     alias $c="$c -v"
 done
-
-eval $(dircolors ~/.dircolors)
 
 source $HOME/.profile
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib

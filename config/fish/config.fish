@@ -1,6 +1,7 @@
 set -x PATH $PATH "$HOME/bin"
 set -x PATH $PATH "$HOME/.cargo/bin"
 set -x PATH $PATH "$HOME/dotfiles/bin"
+set -x PATH $PATH "/opt/homebrew/bin"
 
 set fish_greeting
 
@@ -9,7 +10,6 @@ set -x FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 set -x EDITOR "nvim"
 
 alias tmux 'tmux -2'
-alias ls 'ls -hF'
 alias rg "rg -S"
 alias gpm 'git push origin master'
 
