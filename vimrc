@@ -2,29 +2,18 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'bkad/CamelCaseMotion'
 Plug 'bling/vim-airline'
-Plug 'bruno-/vim-husk'
 Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'fatih/vim-go'
-Plug 'jceb/vim-orgmode'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'}
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'junegunn/vim-pseudocl'
 Plug 'junegunn/vim-slash'
-Plug 'mattn/emmet-vim'
 Plug 'osyo-manga/vim-over'
-Plug 'qnighy/lalrpop.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'sjl/badwolf'
 Plug 'tpope/vim-apathy'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
-Plug 'BenDoan/vim-pdl'
 
 call plug#end()
 
