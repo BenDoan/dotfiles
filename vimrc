@@ -17,8 +17,6 @@ Plug 'w0rp/ale'
 
 call plug#end()
 
-behave xterm
-
 filetype plugin on
 filetype plugin indent on
 
@@ -134,7 +132,6 @@ colors badwolf
 
 "KEY MAPS
 """"""""
-set pastetoggle=<F2>
 let mapleader = ","
 
 "writes a file with sudo
